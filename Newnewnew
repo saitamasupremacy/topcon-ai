@@ -1,0 +1,194 @@
+I see the issue – the bottom tab bar has low contrast, especially on phones. Let me provide you with an improved version that makes tabs clearly visible on both desktop and mobile.
+
+Updated Tab Bar Code (Replace the bottom navigation section)
+
+Find this part in your HTML (around the end of the App function, look for the div with tabs map) and replace with this:
+
+```javascript
+// ─── IMPROVED BOTTOM TAB BAR (Clearly visible on all devices) ───
+React.createElement("div", {
+  style: {
+    display: "flex",
+    background: "#0B1E30", // Solid dark background
+    borderTop: `2px solid ${C.accent}`,
+    flexShrink: 0,
+    overflowX: "auto",
+    WebkitOverflowScrolling: "touch",
+    scrollbarWidth: "none",
+    padding: "4px 0",
+    boxShadow: "0 -4px 12px rgba(0,0,0,0.3)"
+  }
+}, TABS.map(t => React.createElement("button", {
+  key: t.key,
+  onClick: () => setTab(t.key),
+  style: {
+    flex: "0 0 auto",
+    minWidth: 70, // Wider for touch
+    border: "none",
+    background: tab === t.key ? `${t.color}22` : "transparent",
+    cursor: "pointer",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 4,
+    padding: "10px 12px 8px",
+    color: tab === t.key ? t.color : "#C8E0F0", // Brighter text when inactive
+    transition: "all 0.2s",
+    borderRadius: "12px 12px 0 0",
+    margin: "0 2px",
+    fontWeight: 600,
+    fontSize: 12,
+    borderBottom: tab === t.key ? `3px solid ${t.color}` : "3px solid transparent"
+  }
+}, React.createElement("span", {
+  style: {
+    fontSize: 22, // Bigger icons
+    lineHeight: 1,
+    filter: tab === t.key ? "drop-shadow(0 0 4px " + t.color + ")" : "none"
+  }
+}, t.icon), React.createElement("span", {
+  style: {
+    fontFamily: "'Rajdhani',sans-serif",
+    fontSize: 10,
+    letterSpacing: 1,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    whiteSpace: "nowrap",
+    opacity: tab === t.key ? 1 : 0.8
+  }
+}, t.label))));
+```
+
+Alternative: Fully Redesigned Tab Bar (More Modern)
+
+If you want even better visibility, replace with this:
+
+```javascript
+React.createElement("div", {
+  style: {
+    display: "flex",
+    background: "#07131F",
+    borderTop: `1px solid ${C.bdr}`,
+    flexShrink: 0,
+    overflowX: "auto",
+    WebkitOverflowScrolling: "touch",
+    scrollbarWidth: "none",
+    padding: "8px 8px 12px",
+    gap: "8px",
+    justifyContent: "space-around"
+  }
+}, TABS.map(t => React.createElement("button", {
+  key: t.key,
+  onClick: () => setTab(t.key),
+  style: {
+    flex: 1,
+    minWidth: 60,
+    border: "none",
+    background: tab === t.key ? t.color : "rgba(0,212,255,0.08)",
+    cursor: "pointer",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 6,
+    padding: "10px 6px",
+    borderRadius: 16,
+    transition: "all 0.2s",
+    color: tab === t.key ? "#000" : t.color,
+    fontWeight: 700,
+    fontSize: 11,
+    boxShadow: tab === t.key ? `0 0 12px ${t.color}80` : "none"
+  }
+}, React.createElement("span", {
+  style: {
+    fontSize: 24,
+    lineHeight: 1
+  }
+}, t.icon), React.createElement("span", {
+  style: {
+    fontFamily: "'Rajdhani',sans-serif",
+    fontSize: 10,
+    letterSpacing: 1,
+    fontWeight: 600,
+    whiteSpace: "nowrap"
+  }
+}, t.label))));
+```
+
+Full Responsive Optimization (Global Improvements)
+
+Add these CSS rules to make the whole app more mobile-friendly. Insert inside the <style> tag at the top:
+
+```css
+/* Improve touch targets */
+button, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Make tab bar sticky on mobile */
+.bottom-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+}
+
+/* Ensure text is readable on small screens */
+@media (max-width: 480px) {
+  .kpi-grid {
+    gap: 6px;
+  }
+  .param-slider {
+    padding: 10px;
+  }
+  .step-nav button {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+}
+```
+
+Complete Working Fix for Your Current File
+
+Since you already have a live GitHub Pages site, just replace the entire bottom tab bar section (the div with display: "flex" that contains the TABS.map) with the first improved version I provided.
+
+Preview of Changes:
+
+Before After
+Inactive tabs: faint grey text on dark Inactive: bright cyan text #C8E0F0
+No background on inactive Slight background on active, solid bg on bar
+Thin bottom border Thicker bottom border + rounded corners
+Small icons (18px) Larger icons (22px)
+Narrow tap targets (56px) Wider (70px min)
+
+Alternative: Quick CSS Override (No JS changes)
+
+If you prefer not to touch the React code, add this to your <style> section:
+
+```css
+/* Force bottom tabs visibility */
+div:last-child button {
+  background: #0F2A3F !important;
+  color: #00D4FF !important;
+  border-radius: 12px !important;
+  margin: 4px !important;
+  padding: 8px 12px !important;
+}
+div:last-child button span:first-child {
+  font-size: 22px !important;
+}
+div:last-child button span:last-child {
+  font-size: 11px !important;
+  font-weight: bold !important;
+}
+```
+
+But the React code change is cleaner.
+
+After fixing, redeploy to GitHub Pages:
+
+1. Edit your index.html locally with the changes
+2. Go to your GitHub repo → Add file → Upload files
+3. Drag the updated file
+4. Commit
+5. Wait 1-2 minutes – site updates automatically
+
+The tabs will now be clearly visible with bright colors, larger icons, and proper touch targets on both desktop and mobile.
