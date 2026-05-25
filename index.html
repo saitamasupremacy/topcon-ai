@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<html>
+<body>
+  <h1>TOPCon AI Test</h1>
+  <p> <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,7 +13,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{height:100%;overflow:hidden;background:#03080F;font-family:'Exo 2',sans-serif;}
-#root{height:100%;display:flex;flex-direction:column;}
+#root{height:100%;}
 ::-webkit-scrollbar{width:3px;height:3px;}
 ::-webkit-scrollbar-track{background:#03080F;}
 ::-webkit-scrollbar-thumb{background:#152840;border-radius:2px;}
@@ -26,145 +30,6 @@ button{outline:none;}
 .slide-up{animation:slideUp .3s ease both;}
 .ai-response{animation:slideUp .35s ease both;}
 .spin{animation:spin .8s linear infinite;}
-
-/* ─── Bottom Tab Navigation ─────────────────────────────────────────────────── */
-.tab-nav-container{
-  position:fixed;bottom:0;left:0;right:0;
-  background:linear-gradient(to top,#03080F 60%,#03080F00);
-  backdrop-filter:blur(8px);
-  border-top:2px solid #152840;
-  padding:0;
-  margin:0;
-  z-index:1000;
-  box-shadow:0 -4px 20px rgba(0,0,0,0.6);
-}
-
-.tab-nav{
-  display:flex;
-  gap:4px;
-  padding:8px 6px;
-  overflow-x:auto;
-  overflow-y:hidden;
-  scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-}
-
-.tab-nav::-webkit-scrollbar{
-  display:none;
-}
-
-.tab-btn{
-  flex:0 0 auto;
-  min-width:max-content;
-  height:48px;
-  padding:0 16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  border:2px solid transparent;
-  border-radius:8px;
-  background:#0B1E30;
-  color:#A0B8D8;
-  font-family:'Rajdhani',sans-serif;
-  font-size:12px;
-  font-weight:600;
-  letter-spacing:0.5px;
-  cursor:pointer;
-  transition:all 0.25s ease;
-  white-space:nowrap;
-  user-select:none;
-  -webkit-user-select:none;
-  -webkit-touch-callout:none;
-}
-
-.tab-btn:hover{
-  background:#152840;
-  color:#D4E8FF;
-  transform:translateY(-2px);
-  box-shadow:0 4px 12px rgba(0,212,255,0.15);
-}
-
-.tab-btn.active{
-  background:linear-gradient(135deg,#00D4FF22,#006880cc);
-  border-color:#00D4FF;
-  color:#00D4FF;
-  box-shadow:0 0 16px #00D4FF44,inset 0 0 8px #00D4FF11;
-  font-weight:700;
-}
-
-.tab-btn.active:hover{
-  box-shadow:0 0 24px #00D4FF66,inset 0 0 12px #00D4FF22;
-  transform:translateY(-2px);
-}
-
-.tab-icon{
-  font-size:16px;
-  display:inline-block;
-  line-height:1;
-}
-
-.tab-label{
-  display:inline-block;
-}
-
-/* Responsive adjustments for mobile */
-@media(max-width:640px){
-  .tab-nav{
-    padding:6px 4px;
-    gap:3px;
-  }
-  
-  .tab-btn{
-    min-width:56px;
-    height:56px;
-    padding:0 12px;
-    font-size:11px;
-    gap:6px;
-  }
-  
-  .tab-btn .tab-label{
-    display:none;
-  }
-  
-  .tab-icon{
-    font-size:20px;
-  }
-}
-
-@media(max-width:480px){
-  .tab-btn{
-    min-width:52px;
-    height:52px;
-    padding:0 8px;
-  }
-}
-
-/* Main content scrollable area */
-.main-content{
-  flex:1;
-  overflow-y:auto;
-  overflow-x:hidden;
-  padding-bottom:72px;
-}
-
-.main-content::-webkit-scrollbar{
-  width:4px;
-}
-
-.main-content::-webkit-scrollbar-track{
-  background:#03080F;
-}
-
-.main-content::-webkit-scrollbar-thumb{
-  background:#152840;
-  border-radius:2px;
-}
-
-.main-content::-webkit-scrollbar-thumb:hover{
-  background:#1a3555;
-}
 </style>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -173,7 +38,7 @@ button{outline:none;}
 <div id="root"></div>
 <script>
 const{useState,useEffect,useRef,useCallback}=React;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }; }
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 
 // ─── Anthropic API call with error handling ───────────────────────────────
 // IMPORTANT: To use real AI, set your API key here or use environment variable
@@ -261,7 +126,7 @@ async function callClaude(systemPrompt, userMsg, maxTokens = 900) {
 5. VERIFICATION: Measure Voc recovery to >718mV; EL contrast improvement >15%.`;
     }
     
-    return `AI Analysis complete. Current configuration shows ${userMsg.includes('Eta') ? 'efficiency' : 'process'} at optimal range. Consider fine-tuning Boron diffusion temperature for additional gains.`;
+    return `AI Analysis complete. Current configuration shows ${userMsg.includes('Eta') ? 'efficiency' : 'process'} at optimal range. Consider fine-tuning Boron diffusion temperature for additional 0.05% gain.`;
   }
   
   // REAL API CALL with proper headers
@@ -298,7 +163,7 @@ async function callClaude(systemPrompt, userMsg, maxTokens = 900) {
   }
 }
 
-// ─── Palette ───────────────────────────────────────────────────────────────
+// ─── Palette ──────────────────────────────────────────────────────────────────
 const C = {
   bg: "#03080F",
   surf: "#081524",
@@ -317,7 +182,7 @@ const C = {
   grid: "#0F2037"
 };
 
-// ─── Process physics engine ──────────────────────────────────────────────────────
+// ─── Process physics engine (same as before) ──────────────────────────────────
 const BASELINE = {
   Voc: 720,
   Jsc: 39.5,
@@ -374,22 +239,61 @@ const STEPS = [{
     tol: 1
   }],
   propagate(v) {
-    const al = [], lk = {};
-    const kd = v.koh - 1.5, td = v.temp - 80;
+    const al = [],
+      lk = {};
+    const kd = v.koh - 1.5,
+      td = v.temp - 80;
     if (Math.abs(kd) > 0.05) {
-      lk.time = { rec: +(30 - kd / 0.1 * 0.6).toFixed(1), reason: "−0.6 min per +0.1% KOH" };
-      lk.add = { rec: +(5 + kd / 0.1 * 0.6).toFixed(1), reason: "+0.6 ml/L per +0.1% KOH (1:3)" };
-      if (Math.abs(kd) > 0.3) al.push({ lvl: "C", msg: `KOH ${kd > 0 ? "↑" : "↓"}${Math.abs(kd).toFixed(1)}% → Time MUST ${kd > 0 ? "↓" : "↑"}${(Math.abs(kd) / 0.1 * 0.6).toFixed(1)} min | Additive MUST ${kd > 0 ? "↑" : "↓"}${(Math.abs(kd) / 0.1 * 0.6).toFixed(1)} ml/L` });
+      lk.time = {
+        rec: +(30 - kd / 0.1 * 0.6).toFixed(1),
+        reason: "−0.6 min per +0.1% KOH"
+      };
+      lk.add = {
+        rec: +(5 + kd / 0.1 * 0.6).toFixed(1),
+        reason: "+0.6 ml/L per +0.1% KOH (1:3)"
+      };
+      if (Math.abs(kd) > 0.3) al.push({
+        lvl: "C",
+        msg: `KOH ${kd > 0 ? "↑" : "↓"}${Math.abs(kd).toFixed(1)}% → Time MUST ${kd > 0 ? "↓" : "↑"}${(Math.abs(kd) / 0.1 * 0.6).toFixed(1)} min | Additive MUST ${kd > 0 ? "↑" : "↓"}${(Math.abs(kd) / 0.1 * 0.6).toFixed(1)} ml/L`
+      });
     }
     if (Math.abs(td) > 1) {
-      lk.time = { rec: +((lk.time?.rec ?? 30) - td * 1.2).toFixed(1), reason: "Arrhenius: −1.2 min/°C" };
-      if (Math.abs(td) > 3) al.push({ lvl: "C", msg: `Temp ${td > 0 ? "↑" : "↓"}${Math.abs(td)}°C → Time MUST ${td > 0 ? "↓" : "↑"}${(Math.abs(td) * 1.2).toFixed(1)} min` });
+      lk.time = {
+        rec: +((lk.time?.rec ?? 30) - td * 1.2).toFixed(1),
+        reason: "Arrhenius: −1.2 min/°C"
+      };
+      if (Math.abs(td) > 3) al.push({
+        lvl: "C",
+        msg: `Temp ${td > 0 ? "↑" : "↓"}${Math.abs(td)}°C → Time MUST ${td > 0 ? "↓" : "↑"}${(Math.abs(td) * 1.2).toFixed(1)} min`
+      });
     }
-    return { linked: lk, alerts: al };
+    return {
+      linked: lk,
+      alerts: al
+    };
   },
   elec(v) {
     const oe = Math.max(0, (v.koh - 1.5) * 2 + (v.temp - 80) * 0.3 + (v.time - 30) * 0.15 - 0.5);
-    return { Voc: { d: -oe * 4 }, Jsc: { d: -oe * 0.4 }, FF: { d: -oe * 0.2 }, Rs: { d: +oe * 0.05 }, Rsh: { d: 0 }, Eta: { d: -oe * 0.5 } };
+    return {
+      Voc: {
+        d: -oe * 4
+      },
+      Jsc: {
+        d: -oe * 0.4
+      },
+      FF: {
+        d: -oe * 0.2
+      },
+      Rs: {
+        d: +oe * 0.05
+      },
+      Rsh: {
+        d: 0
+      },
+      Eta: {
+        d: -oe * 0.5
+      }
+    };
   }
 }, {
   key: "bor",
@@ -439,25 +343,68 @@ const STEPS = [{
     tol: 3
   }],
   propagate(v) {
-    const al = [], lk = {};
-    const bd = v.bcl3 - 200, td = v.ft - 880;
+    const al = [],
+      lk = {};
+    const bd = v.bcl3 - 200,
+      td = v.ft - 880;
     if (Math.abs(bd) > 5) {
-      lk.o2 = { rec: +(800 + bd * 4).toFixed(0), reason: "O₂:BCl₃=4:1 (stoichiometry)" };
-      lk.fd = { rec: +Math.max(5, 25 - bd / 200 * 25).toFixed(1), reason: "Dose=Flow×Time=const" };
-      al.push({ lvl: "C", msg: `BCl₃ ${bd > 0 ? "↑" : "↓"}${Math.abs(bd).toFixed(0)}sccm → O₂ MUST ${bd > 0 ? "↑" : "↓"}${Math.abs(bd * 4).toFixed(0)}sccm | Time MUST ${bd > 0 ? "↓" : "↑"}${Math.abs(bd / 200 * 25).toFixed(1)}min` });
+      lk.o2 = {
+        rec: +(800 + bd * 4).toFixed(0),
+        reason: "O₂:BCl₃=4:1 (stoichiometry)"
+      };
+      lk.fd = {
+        rec: +Math.max(5, 25 - bd / 200 * 25).toFixed(1),
+        reason: "Dose=Flow×Time=const"
+      };
+      al.push({
+        lvl: "C",
+        msg: `BCl₃ ${bd > 0 ? "↑" : "↓"}${Math.abs(bd).toFixed(0)}sccm → O₂ MUST ${bd > 0 ? "↑" : "↓"}${Math.abs(bd * 4).toFixed(0)}sccm | Time MUST ${bd > 0 ? "↓" : "↑"}${Math.abs(bd / 200 * 25).toFixed(1)}min`
+      });
     }
     if (Math.abs(td) > 2) {
       const rf = Math.exp(td * 0.026);
-      lk.fd = { rec: +Math.max(5, (lk.fd?.rec ?? 25) / rf).toFixed(1), reason: `Ea=3.5eV; +10°C→D↑35%` };
-      lk.bcl3 = { rec: +(v.bcl3 * (1 - td * 0.015)).toFixed(0), reason: "−15% flow per +10°C" };
-      if (Math.abs(td) > 5) al.push({ lvl: "C", msg: `Temp ${td > 0 ? "↑" : "↓"}${Math.abs(td)}°C → Time MUST ${td > 0 ? "↓" : "↑"}${Math.abs(25 - (lk.fd?.rec ?? 25)).toFixed(1)}min | BCl₃ MUST ${td > 0 ? "↓" : "↑"}${Math.abs(v.bcl3 - (lk.bcl3?.rec ?? 200)).toFixed(0)}sccm` });
+      lk.fd = {
+        rec: +Math.max(5, (lk.fd?.rec ?? 25) / rf).toFixed(1),
+        reason: `Ea=3.5eV; +10°C→D↑35%`
+      };
+      lk.bcl3 = {
+        rec: +(v.bcl3 * (1 - td * 0.015)).toFixed(0),
+        reason: "−15% flow per +10°C"
+      };
+      if (Math.abs(td) > 5) al.push({
+        lvl: "C",
+        msg: `Temp ${td > 0 ? "↑" : "↓"}${Math.abs(td)}°C → Time MUST ${td > 0 ? "↓" : "↑"}${Math.abs(25 - (lk.fd?.rec ?? 25)).toFixed(1)}min | BCl₃ MUST ${td > 0 ? "↓" : "↑"}${Math.abs(v.bcl3 - (lk.bcl3?.rec ?? v.bcl3)).toFixed(0)}sccm`
+      });
     }
-    return { linked: lk, alerts: al };
+    return {
+      linked: lk,
+      alerts: al
+    };
   },
   elec(v) {
     const n = 800 / (v.bcl3 / 200) / (v.fd / 25) / ((v.ft - 850) * 0.005 + 1) / 110;
-    const ov = Math.max(0, 1 - n), un = Math.max(0, n - 1);
-    return { Voc: { d: ov > 0 ? -ov * 18 : -un * 8 }, Jsc: { d: ov > 0 ? -ov * 0.15 : 0 }, FF: { d: un > 0 ? -un * 1.5 : 0 }, Rs: { d: un > 0 ? +un * 0.5 : 0 }, Rsh: { d: 0 }, Eta: { d: ov > 0 ? -ov * 1.2 : -un * 0.7 } };
+    const ov = Math.max(0, 1 - n),
+      un = Math.max(0, n - 1);
+    return {
+      Voc: {
+        d: ov > 0 ? -ov * 18 : -un * 8
+      },
+      Jsc: {
+        d: ov > 0 ? -ov * 0.15 : 0
+      },
+      FF: {
+        d: un > 0 ? -un * 1.5 : 0
+      },
+      Rs: {
+        d: un > 0 ? +un * 0.5 : 0
+      },
+      Rsh: {
+        d: 0
+      },
+      Eta: {
+        d: ov > 0 ? -ov * 1.2 : -un * 0.7
+      }
+    };
   }
 }, {
   key: "lpc",
@@ -507,24 +454,63 @@ const STEPS = [{
     tol: 5
   }],
   propagate(v) {
-    const al = [], lk = {};
-    const fd = v.sih4 - 100, td = v.lt - 580;
+    const al = [],
+      lk = {};
+    const fd = v.sih4 - 100,
+      td = v.lt - 580;
     if (Math.abs(fd) > 5) {
-      lk.ld = { rec: +Math.max(10, 45 * (1 - fd / 100)).toFixed(1), reason: "Rate∝SiH₄; same thickness" };
-      lk.lt = { rec: +(580 - fd * 0.3).toFixed(0), reason: "−3°C/+10sccm (nucleation)" };
-      al.push({ lvl: "C", msg: `SiH₄ ${fd > 0 ? "↑" : "↓"}${Math.abs(fd)}sccm → Time MUST ${fd > 0 ? "↓" : "↑"}${Math.abs(45 - Math.max(10, 45 * (1 - fd / 100))).toFixed(1)}min | Temp MUST ${fd > 0 ? "↓" : "↑"}${Math.abs(fd * 0.3).toFixed(0)}°C` });
+      lk.ld = {
+        rec: +Math.max(10, 45 * (1 - fd / 100)).toFixed(1),
+        reason: "Rate∝SiH₄; same thickness"
+      };
+      lk.lt = {
+        rec: +(580 - fd * 0.3).toFixed(0),
+        reason: "−3°C/+10sccm (nucleation)"
+      };
+      al.push({
+        lvl: "C",
+        msg: `SiH₄ ${fd > 0 ? "↑" : "↓"}${Math.abs(fd)}sccm → Time MUST ${fd > 0 ? "↓" : "↑"}${Math.abs(45 - Math.max(10, 45 * (1 - fd / 100))).toFixed(1)}min | Temp MUST ${fd > 0 ? "↓" : "↑"}${Math.abs(fd * 0.3).toFixed(0)}°C`
+      });
     }
     if (Math.abs(td) > 3) {
       const rf = Math.exp(td * 0.018);
-      lk.ld = { rec: +Math.max(10, (lk.ld?.rec ?? 45) / rf).toFixed(1), reason: `Arrhenius Ea=1.6eV` };
-      if (Math.abs(td) > 8) al.push({ lvl: "C", msg: `Temp ${td > 0 ? "↑" : "↓"}${Math.abs(td)}°C → Rate×${rf.toFixed(2)} → Time MUST ${td > 0 ? "↓" : "↑"}${Math.abs(45 - Math.max(10, lk.ld?.rec ?? 45)).toFixed(1)}min` });
+      lk.ld = {
+        rec: +Math.max(10, (lk.ld?.rec ?? 45) / rf).toFixed(1),
+        reason: `Arrhenius Ea=1.6eV`
+      };
+      if (Math.abs(td) > 8) al.push({
+        lvl: "C",
+        msg: `Temp ${td > 0 ? "↑" : "↓"}${Math.abs(td)}°C → Rate×${rf.toFixed(2)} → Time MUST ${td > 0 ? "↓" : "↑"}${Math.abs(45 - Math.max(10, lk.ld?.rec ?? 45)).toFixed(1)}min`
+      });
     }
-    return { linked: lk, alerts: al };
+    return {
+      linked: lk,
+      alerts: al
+    };
   },
   elec(v) {
     const thick = 3.9 * (v.sih4 / 100) * Math.exp((v.lt - 580) * 0.018) * v.ld;
     const td = thick - 175;
-    return { Voc: { d: td < -30 ? -18 : td > 30 ? -5 : +2 }, Jsc: { d: td > 30 ? -0.1 : 0 }, FF: { d: 0 }, Rs: { d: td > 30 ? +0.1 : 0 }, Rsh: { d: td < -30 ? -800 : +300 }, Eta: { d: td < -30 ? -1.0 : td > 30 ? -0.3 : +0.1 } };
+    return {
+      Voc: {
+        d: td < -30 ? -18 : td > 30 ? -5 : +2
+      },
+      Jsc: {
+        d: td > 30 ? -0.1 : 0
+      },
+      FF: {
+        d: 0
+      },
+      Rs: {
+        d: td > 30 ? +0.1 : 0
+      },
+      Rsh: {
+        d: td < -30 ? -800 : +300
+      },
+      Eta: {
+        d: td < -30 ? -1.0 : td > 30 ? -0.3 : +0.1
+      }
+    };
   }
 }, {
   key: "ald",
@@ -574,21 +560,58 @@ const STEPS = [{
     tol: 10
   }],
   propagate(v) {
-    const al = [], lk = {};
+    const al = [],
+      lk = {};
     const minP = Math.max(v.tma, v.h2o) * 5;
-    lk.purge = { rec: +minP.toFixed(0), reason: `MUST ≥5×max(TMA,H₂O)=${minP}ms` };
-    if (v.purge < minP - 10) al.push({ lvl: "C", msg: `CRITICAL: Purge ${v.purge}ms < required ${minP}ms → CVD growth → Voc −15 to −30mV!` });
-    if (Math.abs(v.tma - 20) > 2) al.push({ lvl: "I", msg: `TMA ${v.tma}ms → Purge MUST be ≥${v.tma * 5}ms` });
+    lk.purge = {
+      rec: +minP.toFixed(0),
+      reason: `MUST ≥5×max(TMA,H₂O)=${minP}ms`
+    };
+    if (v.purge < minP - 10) al.push({
+      lvl: "C",
+      msg: `CRITICAL: Purge ${v.purge}ms < required ${minP}ms → CVD growth → Voc −15 to −30mV!`
+    });
+    if (Math.abs(v.tma - 20) > 2) al.push({
+      lvl: "I",
+      msg: `TMA ${v.tma}ms → Purge MUST be ≥${v.tma * 5}ms`
+    });
     const thick = (v.cyc * 0.09).toFixed(1);
     lk._thick = thick;
-    if (parseFloat(thick) < 7) al.push({ lvl: "C", msg: `Film ${thick}nm < 7nm → Qf −30% → Voc −10 to −20mV` });
-    else if (parseFloat(thick) > 15) al.push({ lvl: "W", msg: `Film ${thick}nm > 15nm → contact barrier risk` });
-    return { linked: lk, alerts: al };
+    if (parseFloat(thick) < 7) al.push({
+      lvl: "C",
+      msg: `Film ${thick}nm < 7nm → Qf −30% → Voc −10 to −20mV`
+    });else if (parseFloat(thick) > 15) al.push({
+      lvl: "W",
+      msg: `Film ${thick}nm > 15nm → contact barrier risk`
+    });
+    return {
+      linked: lk,
+      alerts: al
+    };
   },
   elec(v) {
     const thick = v.cyc * 0.09;
     const cvd = v.purge < Math.max(v.tma, v.h2o) * 5 - 10;
-    return { Voc: { d: cvd ? -22 : thick < 7 ? -17 : thick > 15 ? -5 : +2 }, Jsc: { d: 0 }, FF: { d: cvd ? -1.5 : thick > 15 ? -0.8 : 0 }, Rs: { d: thick > 15 ? +0.4 : 0 }, Rsh: { d: cvd ? -2000 : thick < 7 ? -800 : +500 }, Eta: { d: cvd ? -1.5 : thick < 7 ? -1.0 : thick > 15 ? -0.5 : +0.2 } };
+    return {
+      Voc: {
+        d: cvd ? -22 : thick < 7 ? -17 : thick > 15 ? -5 : +2
+      },
+      Jsc: {
+        d: 0
+      },
+      FF: {
+        d: cvd ? -1.5 : thick > 15 ? -0.8 : 0
+      },
+      Rs: {
+        d: thick > 15 ? +0.4 : 0
+      },
+      Rsh: {
+        d: cvd ? -2000 : thick < 7 ? -800 : +500
+      },
+      Eta: {
+        d: cvd ? -1.5 : thick < 7 ? -1.0 : thick > 15 ? -0.5 : +0.2
+      }
+    };
   }
 }, {
   key: "pec",
@@ -638,30 +661,77 @@ const STEPS = [{
     tol: 15
   }],
   propagate(v) {
-    const al = [], lk = {};
-    const sd = v.sih4p - 200, nd = v.nh3 - 600;
+    const al = [],
+      lk = {};
+    const sd = v.sih4p - 200,
+      nd = v.nh3 - 600;
     if (Math.abs(sd) > 5) {
-      lk.nh3 = { rec: +(v.sih4p * 3).toFixed(0), reason: "SiH₄:NH₃=1:3 FIXED" };
-      lk.pt = { rec: +(180 * (200 / v.sih4p)).toFixed(0), reason: "Rate∝SiH₄; adjust time" };
-      al.push({ lvl: "C", msg: `SiH₄ ${sd > 0 ? "↑" : "↓"}${Math.abs(sd)}sccm → NH₃ MUST ${sd > 0 ? "↑" : "↓"}${Math.abs(v.sih4p * 3 - 600).toFixed(0)}sccm | Time MUST ${sd > 0 ? "↓" : "↑"}${Math.abs(180 * (1 - 200 / v.sih4p)).toFixed(0)}s` });
+      lk.nh3 = {
+        rec: +(v.sih4p * 3).toFixed(0),
+        reason: "SiH₄:NH₃=1:3 FIXED"
+      };
+      lk.pt = {
+        rec: +(180 * (200 / v.sih4p)).toFixed(0),
+        reason: "Rate∝SiH₄; adjust time"
+      };
+      al.push({
+        lvl: "C",
+        msg: `SiH₄ ${sd > 0 ? "↑" : "↓"}${Math.abs(sd)}sccm → NH₃ MUST ${sd > 0 ? "↑" : "↓"}${Math.abs(v.sih4p * 3 - 600).toFixed(0)}sccm | Time MUST ${sd > 0 ? "↓" : "↑"}${Math.abs(180 - 180 * (200 / v.sih4p)).toFixed(0)}s`
+      });
     }
     if (Math.abs(nd) > 10 && Math.abs(sd) <= 5) {
-      lk.sih4p = { rec: +(v.nh3 / 3).toFixed(0), reason: "Si:N=1:3; ΔSiH₄=ΔNH₃÷3" };
-      al.push({ lvl: "C", msg: `NH₃ ${nd > 0 ? "↑" : "↓"}${Math.abs(nd)}sccm → SiH₄ MUST ${nd > 0 ? "↑" : "↓"}${Math.abs(v.nh3 / 3 - 200).toFixed(0)}sccm` });
+      lk.sih4p = {
+        rec: +(v.nh3 / 3).toFixed(0),
+        reason: "Si:N=1:3; ΔSiH₄=ΔNH₃÷3"
+      };
+      al.push({
+        lvl: "C",
+        msg: `NH₃ ${nd > 0 ? "↑" : "↓"}${Math.abs(nd)}sccm → SiH₄ MUST ${nd > 0 ? "↑" : "↓"}${Math.abs(v.nh3 / 3 - 200).toFixed(0)}sccm`
+      });
     }
     const ri = 2.02 + (v.sih4p / v.nh3 - 200 / 600) * 3.1;
     lk._ri = ri.toFixed(3);
-    if (ri > 2.08) al.push({ lvl: "C", msg: `RI=${ri.toFixed(2)} (Si-rich) → Jsc −0.3 to −0.5mA/cm²` });
-    else if (ri < 1.95) al.push({ lvl: "W", msg: `RI=${ri.toFixed(2)} (N-rich) → ARC performance lost` });
-    if (v.rf > 240) al.push({ lvl: "C", msg: `RF ${v.rf}W > 240W → plasma damage → Voc −5 to −15mV` });
-    return { linked: lk, alerts: al };
+    if (ri > 2.08) al.push({
+      lvl: "C",
+      msg: `RI=${ri.toFixed(2)} (Si-rich) → Jsc −0.3 to −0.5mA/cm²`
+    });else if (ri < 1.95) al.push({
+      lvl: "W",
+      msg: `RI=${ri.toFixed(2)} (N-rich) → ARC performance lost`
+    });
+    if (v.rf > 240) al.push({
+      lvl: "C",
+      msg: `RF ${v.rf}W > 240W → plasma damage → Voc −5 to −15mV`
+    });
+    return {
+      linked: lk,
+      alerts: al
+    };
   },
   elec(v) {
     const ri = 2.02 + (v.sih4p / v.nh3 - 200 / 600) * 3.1;
     const thick = 78 / 180 * (v.sih4p / 200) * (v.rf / 200) ** 0.8 * v.pt;
     const arcL = Math.abs(thick - 78) * 0.06;
     const rfD = v.rf > 240 ? (v.rf - 240) * 0.06 : 0;
-    return { Voc: { d: -rfD * 0.1 }, Jsc: { d: -(arcL + (ri > 2.08 ? (ri - 2.08) * 5 : ri < 1.95 ? (1.95 - ri) * 4 : 0) * 0.05) }, FF: { d: -rfD * 0.05 }, Rs: { d: 0 }, Rsh: { d: -rfD * 100 }, Eta: { d: -(arcL * 0.04 + rfD * 0.04) } };
+    return {
+      Voc: {
+        d: -rfD * 0.1
+      },
+      Jsc: {
+        d: -(arcL + (ri > 2.08 ? (ri - 2.08) * 5 : ri < 1.95 ? (1.95 - ri) * 4 : 0) * 0.05)
+      },
+      FF: {
+        d: -rfD * 0.05
+      },
+      Rs: {
+        d: 0
+      },
+      Rsh: {
+        d: -rfD * 100
+      },
+      Eta: {
+        d: -(arcL * 0.04 + rfD * 0.04)
+      }
+    };
   }
 }, {
   key: "fir",
@@ -701,32 +771,80 @@ const STEPS = [{
     tol: 15
   }],
   propagate(v) {
-    const al = [], lk = {};
-    const td = v.peak - 795, sd = v.belt - 5.7;
+    const al = [],
+      lk = {};
+    const td = v.peak - 795,
+      sd = v.belt - 5.7;
     if (Math.abs(td) > 3) {
-      lk.belt = { rec: +(5.7 * (1 + td / (795 + 273))).toFixed(2), reason: "Budget=T×Dwell=const" };
-      lk.preheat = { rec: +(400 + td).toFixed(0), reason: "Maintain ramp rate" };
-      if (td > 5) al.push({ lvl: "C", msg: `Peak ↑${td}°C → Belt MUST ↑ to ${(5.7 * (1 + td / (795 + 273))).toFixed(2)}m/min | Pre-heat MUST ↑ to ${(400 + td).toFixed(0)}°C` });
-      else al.push({ lvl: "W", msg: `Peak ${td > 0 ? "↑" : "↓"}${Math.abs(td)}°C → Belt should ${td > 0 ? "↑" : "↓"} to ${(5.7 * (1 + td / (795 + 273))).toFixed(2)}m/min` });
+      lk.belt = {
+        rec: +(5.7 * (1 + td / (795 + 273))).toFixed(2),
+        reason: "Budget=T×Dwell=const"
+      };
+      lk.preheat = {
+        rec: +(400 + td).toFixed(0),
+        reason: "Maintain ramp rate"
+      };
+      if (td > 5) al.push({
+        lvl: "C",
+        msg: `Peak ↑${td}°C → Belt MUST ↑ to ${(5.7 * (1 + td / (795 + 273))).toFixed(2)}m/min | Pre-heat MUST ↑ to ${(400 + td).toFixed(0)}°C`
+      });else al.push({
+        lvl: "W",
+        msg: `Peak ${td > 0 ? "↑" : "↓"}${Math.abs(td)}°C → Belt should ${td > 0 ? "↑" : "↓"} to ${(5.7 * (1 + td / (795 + 273))).toFixed(2)}m/min`
+      });
     }
     if (Math.abs(sd) > 0.1 && Math.abs(td) <= 3) {
       const nt = +(795 * Math.pow(v.belt / 5.7, 0.85)).toFixed(0);
-      lk.peak = { rec: nt, reason: "T_new=T_old×(v_new/v_old)^0.85" };
-      al.push({ lvl: "C", msg: `Belt ${sd > 0 ? "↑" : "↓"}${Math.abs(sd).toFixed(2)}m/min → Peak MUST ${sd > 0 ? "↑" : "↓"} to ${nt}°C` });
+      lk.peak = {
+        rec: nt,
+        reason: "T_new=T_old×(v_new/v_old)^0.85"
+      };
+      al.push({
+        lvl: "C",
+        msg: `Belt ${sd > 0 ? "↑" : "↓"}${Math.abs(sd).toFixed(2)}m/min → Peak MUST ${sd > 0 ? "↑" : "↓"} to ${nt}°C`
+      });
     }
     const br = (v.peak + 273) * (1 / v.belt) / ((795 + 273) * (1 / 5.7));
     lk._budget = br.toFixed(3);
-    if (br > 1.05) al.push({ lvl: "C", msg: `⚠ OVER-FIRE: ${((br - 1) * 100).toFixed(1)}% excess → Ag spikes → Rsh collapse → FF −3 to −5%!` });
-    else if (br < 0.95) al.push({ lvl: "W", msg: `UNDER-FIRE: ${((1 - br) * 100).toFixed(1)}% deficit → Rs ↑1–2mΩ → FF −2 to −4%` });
-    return { linked: lk, alerts: al };
+    if (br > 1.05) al.push({
+      lvl: "C",
+      msg: `⚠ OVER-FIRE: ${((br - 1) * 100).toFixed(1)}% excess → Ag spikes → Rsh collapse → FF −3 to −5%!`
+    });else if (br < 0.95) al.push({
+      lvl: "W",
+      msg: `UNDER-FIRE: ${((1 - br) * 100).toFixed(1)}% deficit → Rs ↑1–2mΩ → FF −2 to −4%`
+    });
+    return {
+      linked: lk,
+      alerts: al
+    };
   },
   elec(v) {
     const br = (v.peak + 273) * (1 / v.belt) / ((795 + 273) * (1 / 5.7));
-    const ov = Math.max(0, br - 1), un = Math.max(0, 1 - br);
-    return { Voc: { d: ov > 0.05 ? -ov * 250 : 0 }, Jsc: { d: 0 }, FF: { d: ov > 0.03 ? -ov * 60 : -un * 35 }, Rs: { d: un > 0.02 ? +un * 15 : 0 }, Rsh: { d: ov > 0.04 ? -ov * 50000 : 0 }, Eta: { d: ov > 0.03 ? -ov * 15 : -un * 10 } };
+    const ov = Math.max(0, br - 1),
+      un = Math.max(0, 1 - br);
+    return {
+      Voc: {
+        d: ov > 0.05 ? -ov * 250 : 0
+      },
+      Jsc: {
+        d: 0
+      },
+      FF: {
+        d: ov > 0.03 ? -ov * 60 : -un * 35
+      },
+      Rs: {
+        d: un > 0.02 ? +un * 15 : 0
+      },
+      Rsh: {
+        d: ov > 0.04 ? -ov * 50000 : 0
+      },
+      Eta: {
+        d: ov > 0.03 ? -ov * 15 : -un * 10
+      }
+    };
   }
 }];
 
+// ─── Global state helpers ─────────────────────────────────────────────────────
 function initVals() {
   const v = {};
   STEPS.forEach(s => {
@@ -737,15 +855,12 @@ function initVals() {
   });
   return v;
 }
-
 function getAllElec(vals) {
   return STEPS.map(s => s.elec(vals[s.key]));
 }
-
 function getTotalEta(vals) {
   return BASELINE.Eta + getAllElec(vals).reduce((s, e) => s + (e.Eta?.d ?? 0), 0);
 }
-
 function getStepFin(vals, stepKey) {
   const s = STEPS.find(x => x.key === stepKey);
   const e = s.elec(vals[stepKey]);
@@ -759,19 +874,51 @@ function getStepFin(vals, stepKey) {
   };
 }
 
-const mono = { fontFamily: "'Share Tech Mono',monospace" };
-const raj = { fontFamily: "'Rajdhani',sans-serif" };
-
-function Divider({ label }) {
-  return React.createElement("div", {
-    style: { display: "flex", alignItems: "center", gap: 8, margin: "14px 0 8px" }
-  }, React.createElement("div", { style: { flex: 1, height: 1, background: C.bdr } }), React.createElement("span", {
-    style: { ...raj, fontSize: 9, letterSpacing: 3, color: C.muted, textTransform: "uppercase" }
-  }, label), React.createElement("div", { style: { flex: 1, height: 1, background: C.bdr } }));
+// ─── UI Atoms ─────────────────────────────────────────────────────────────────
+const mono = {
+  fontFamily: "'Share Tech Mono',monospace"
+};
+const raj = {
+  fontFamily: "'Rajdhani',sans-serif"
+};
+function Divider({
+  label
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      margin: "14px 0 8px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      height: 1,
+      background: C.bdr
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...raj,
+      fontSize: 9,
+      letterSpacing: 3,
+      color: C.muted,
+      textTransform: "uppercase"
+    }
+  }, label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      height: 1,
+      background: C.bdr
+    }
+  }));
 }
-
-function Chip({ color, children, small }) {
-  return React.createElement("span", {
+function Chip({
+  color,
+  children,
+  small
+}) {
+  return /*#__PURE__*/React.createElement("span", {
     style: {
       ...raj,
       fontSize: small ? 8 : 10,
@@ -786,11 +933,17 @@ function Chip({ color, children, small }) {
     }
   }, children);
 }
-
-function AlertBox({ lvl, msg }) {
-  const map = { C: [C.red, "⚠ CRITICAL"], W: [C.amber, "▲ WARNING"], I: [C.accent, "ℹ INFO"] };
+function AlertBox({
+  lvl,
+  msg
+}) {
+  const map = {
+    C: [C.red, "⚠ CRITICAL"],
+    W: [C.amber, "▲ WARNING"],
+    I: [C.accent, "ℹ INFO"]
+  };
   const [col, title] = map[lvl] ?? map.I;
-  return React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       background: `${col}0D`,
       borderLeft: `3px solid ${col}`,
@@ -801,273 +954,2371 @@ function AlertBox({ lvl, msg }) {
       lineHeight: 1.5,
       color: `${col}DD`
     }
-  }, React.createElement("div", {
-    style: { ...raj, fontWeight: 700, fontSize: 12, letterSpacing: 1, marginBottom: 2 }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontWeight: 700,
+      fontSize: 12,
+      letterSpacing: 1,
+      marginBottom: 2
+    }
   }, title), msg);
 }
-
-function KPI({ label, val, base, dec, color, unit }) {
+function KPI({
+  label,
+  val,
+  base,
+  dec,
+  color,
+  unit
+}) {
   const d = val - base;
   const pos = d > 0;
-  return React.createElement("div", {
-    style: { background: C.surf, border: `1px solid ${C.bdr}`, borderRadius: 10, padding: "10px 8px" }
-  }, React.createElement("div", {
-    style: { ...raj, fontSize: 8, color: C.muted, letterSpacing: 2, textTransform: "uppercase", marginBottom: 3 }
-  }, label), React.createElement("div", {
-    style: { ...mono, fontSize: 20, fontWeight: 700, color, lineHeight: 1 }
-  }, val.toFixed(dec)), React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: C.surf,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 10,
+      padding: "10px 8px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 8,
+      color: C.muted,
+      letterSpacing: 2,
+      textTransform: "uppercase",
+      marginBottom: 3
+    }
+  }, label), /*#__PURE__*/React.createElement("div", {
     style: {
       ...mono,
-      fontSize: 9,
-      color: pos ? C.green : C.red,
-      marginTop: 4,
+      fontSize: 20,
+      fontWeight: 700,
+      color,
+      lineHeight: 1
+    }
+  }, val.toFixed(dec)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...mono,
+      fontSize: 10,
+      color: d === 0 ? C.muted : pos ? C.green : C.red,
+      marginTop: 2
+    }
+  }, d === 0 ? "±0" : (pos ? "+" : "") + d.toFixed(dec), " ", unit));
+}
+function Loader({
+  text
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 12,
+      padding: "32px 20px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 40,
+      height: 40,
+      borderRadius: "50%",
+      border: `3px solid ${C.bdr}`,
+      borderTopColor: C.accent,
+      animation: "spin 0.8s linear infinite"
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...raj,
+      fontSize: 12,
+      color: C.muted,
+      letterSpacing: 2,
+      textAlign: "center"
+    }
+  }, text), /*#__PURE__*/React.createElement("style", null, `@keyframes spin{to{transform:rotate(360deg)}}`));
+}
+function AiResponse({
+  text
+}) {
+  if (!text) return null;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: `linear-gradient(135deg,${C.accent}08,${C.purple}08)`,
+      border: `1px solid ${C.accent}33`,
+      borderRadius: 12,
+      padding: "14px 14px",
+      marginTop: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
       display: "flex",
       alignItems: "center",
-      gap: 4
+      gap: 8,
+      marginBottom: 10
     }
-  }, pos ? "↑" : "↓", Math.abs(d).toFixed(2), unit));
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 24,
+      height: 24,
+      borderRadius: 6,
+      background: `linear-gradient(135deg,${C.accent},${C.purple})`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 14
+    }
+  }, "\u2726"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...raj,
+      fontSize: 11,
+      fontWeight: 700,
+      letterSpacing: 2,
+      color: C.accent
+    }
+  }, "AI ANALYSIS")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      lineHeight: 1.7,
+      color: "#C8E0F0",
+      whiteSpace: "pre-wrap"
+    }
+  }, text));
 }
 
-function ParamSlider({ param, val, onChange, linked, alerts }) {
-  const hasAlert = alerts.some(a => a.lvl === "C");
-  const hasWarning = alerts.some(a => a.lvl === "W");
-  const borderCol = hasAlert ? C.red : hasWarning ? C.amber : C.bdr;
-  const linkedInfo = linked[param.key];
-  const tolMin = param.target - param.tol;
-  const tolMax = param.target + param.tol;
-  const inTol = val >= tolMin && val <= tolMax;
-
-  return React.createElement("div", {
+// ─── CALCULATOR MODULE ─────────────────────────────────────────────────────────
+function CalcModule({
+  vals,
+  setVals
+}) {
+  const [stepIdx, setStepIdx] = useState(0);
+  const navRef = useRef(null);
+  const step = STEPS[stepIdx];
+  const sv = vals[step.key];
+  const prop = step.propagate(sv);
+  const elec = step.elec(sv);
+  const fin = getStepFin(vals, step.key);
+  const allElec = getAllElec(vals);
+  const totalEta = getTotalEta(vals);
+  function update(pk, v) {
+    const p = step.params.find(x => x.key === pk);
+    setVals(prev => ({
+      ...prev,
+      [step.key]: {
+        ...prev[step.key],
+        [pk]: Math.min(p.max, Math.max(p.min, v))
+      }
+    }));
+  }
+  function stepV(pk, dir) {
+    const p = step.params.find(x => x.key === pk);
+    update(pk, vals[step.key][pk] + dir * p.step);
+  }
+  useEffect(() => {
+    navRef.current?.children[stepIdx]?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center"
+    });
+  }, [stepIdx]);
+  const etaC = totalEta >= 24.5 ? C.green : totalEta >= 24.0 ? C.amber : C.red;
+  return /*#__PURE__*/React.createElement("div", {
     style: {
-      background: hasAlert ? `${C.red}08` : hasWarning ? `${C.amber}08` : C.panel,
-      border: `1px solid ${borderCol}`,
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    ref: navRef,
+    style: {
+      display: "flex",
+      overflowX: "auto",
+      flexShrink: 0,
+      background: C.surf,
+      borderBottom: `1px solid ${C.bdr}`,
+      WebkitOverflowScrolling: "touch",
+      scrollbarWidth: "none"
+    }
+  }, STEPS.map((s, i) => {
+    const hasAlert = s.propagate(vals[s.key]).alerts.some(a => a.lvl === "C" || a.lvl === "W");
+    const active = i === stepIdx;
+    return /*#__PURE__*/React.createElement("button", {
+      key: s.key,
+      onClick: () => setStepIdx(i),
+      style: {
+        flexShrink: 0,
+        padding: "8px 13px",
+        border: "none",
+        background: "transparent",
+        cursor: "pointer",
+        ...raj,
+        fontWeight: 600,
+        fontSize: 11,
+        letterSpacing: 1,
+        textTransform: "uppercase",
+        color: active ? s.color : hasAlert ? C.amber : C.muted,
+        borderBottom: `2px solid ${active ? s.color : "transparent"}`,
+        whiteSpace: "nowrap",
+        transition: "all 0.15s",
+        position: "relative"
+      }
+    }, s.label, hasAlert && /*#__PURE__*/React.createElement("span", {
+      style: {
+        position: "absolute",
+        top: 5,
+        right: 4,
+        width: 5,
+        height: 5,
+        borderRadius: "50%",
+        background: C.red
+      }
+    }));
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      overflowY: "auto",
+      WebkitOverflowScrolling: "touch",
+      padding: "12px 14px 24px"
+    }
+  }, step.params.map(p => {
+    const val = sv[p.key];
+    const inTol = Math.abs(val - p.target) <= p.tol;
+    const link = prop.linked[p.key];
+    const pct = ((val - p.min) / (p.max - p.min) * 100).toFixed(1);
+    const tpct = ((p.target - p.min) / (p.max - p.min) * 100).toFixed(1);
+    return /*#__PURE__*/React.createElement("div", {
+      key: p.key,
+      style: {
+        background: C.surf,
+        border: `1px solid ${link ? C.accent : inTol ? C.bdr : C.amber}33`,
+        borderRadius: 12,
+        padding: 13,
+        marginBottom: 10,
+        position: "relative",
+        overflow: "hidden"
+      }
+    }, link && /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 2,
+        background: C.accent
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 8
+      }
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 13,
+        fontWeight: 600,
+        marginBottom: 2
+      }
+    }, p.label), !inTol && /*#__PURE__*/React.createElement(Chip, {
+      color: C.amber,
+      small: true
+    }, "out of spec")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 6
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: () => stepV(p.key, -1),
+      style: {
+        width: 30,
+        height: 30,
+        borderRadius: 7,
+        border: `1px solid ${C.bdr}`,
+        background: C.panel,
+        color: C.accent,
+        fontSize: 20,
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        ...raj,
+        fontWeight: 700,
+        lineHeight: 1
+      }
+    }, "\u2212"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...mono,
+        fontSize: 14,
+        color: C.accent,
+        minWidth: 70,
+        textAlign: "center"
+      }
+    }, typeof val === "number" && Math.abs(val) < 10 ? val.toFixed(Math.abs(val) < 2 ? 2 : 1) : Math.round(val), " ", /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 9,
+        color: C.muted
+      }
+    }, p.unit)), /*#__PURE__*/React.createElement("button", {
+      onClick: () => stepV(p.key, +1),
+      style: {
+        width: 30,
+        height: 30,
+        borderRadius: 7,
+        border: `1px solid ${C.bdr}`,
+        background: C.panel,
+        color: C.accent,
+        fontSize: 20,
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        ...raj,
+        fontWeight: 700,
+        lineHeight: 1
+      }
+    }, "+"))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "relative",
+        margin: "8px 0 4px"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "absolute",
+        top: -14,
+        left: `${tpct}%`,
+        transform: "translateX(-50%)",
+        fontSize: 8,
+        color: C.gold,
+        ...raj,
+        whiteSpace: "nowrap"
+      }
+    }, "\u25B2", p.target), /*#__PURE__*/React.createElement("input", {
+      type: "range",
+      min: p.min,
+      max: p.max,
+      step: p.step,
+      value: val,
+      onChange: e => update(p.key, parseFloat(e.target.value)),
+      style: {
+        WebkitAppearance: "none",
+        appearance: "none",
+        width: "100%",
+        height: 5,
+        borderRadius: 3,
+        outline: "none",
+        cursor: "pointer",
+        margin: 0,
+        background: `linear-gradient(to right,${inTol ? C.accent : C.amber} ${pct}%,${C.bdr} ${pct}%)`
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: "absolute",
+        top: -3,
+        left: `${tpct}%`,
+        transform: "translateX(-50%)",
+        width: 2,
+        height: 11,
+        background: C.gold,
+        borderRadius: 1,
+        pointerEvents: "none"
+      }
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        ...mono,
+        fontSize: 9,
+        color: C.muted,
+        marginTop: 4
+      }
+    }, /*#__PURE__*/React.createElement("span", null, p.min), /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: C.gold
+      }
+    }, "\u25B2", p.target, p.unit), /*#__PURE__*/React.createElement("span", null, p.max)), link && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 6,
+        background: `${C.accent}0D`,
+        border: `1px solid ${C.accent}33`,
+        borderRadius: 8,
+        padding: "7px 10px",
+        marginTop: 9
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: C.accent,
+        fontSize: 13
+      }
+    }, "\u21B3"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: C.accent,
+        flex: 1
+      }
+    }, link.reason), /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...mono,
+        fontSize: 13,
+        color: C.gold,
+        fontWeight: 700
+      }
+    }, link.rec, " ", p.unit)));
+  }), prop.linked._thick && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      background: `${C.accent}0D`,
+      border: `1px solid ${C.accent}22`,
       borderRadius: 8,
-      padding: "10px 12px",
+      padding: "7px 12px",
       marginBottom: 8
     }
-  }, React.createElement("div", {
-    style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }
-  }, React.createElement("label", {
-    style: { ...raj, fontSize: 11, fontWeight: 600, color: C.text, display: "flex", alignItems: "center", gap: 6 }
-  }, param.label, inTol ? React.createElement("span", {
-    style: { color: C.green, fontSize: 10 }
-  }, "✓") : React.createElement("span", {
-    style: { color: C.red, fontSize: 10 }
-  }, "✕")), React.createElement("span", {
-    style: { ...mono, fontSize: 13, fontWeight: 700, color: C.accent }
-  }, val.toFixed(Math.max(1, -Math.floor(Math.log10(param.step)))), " ", param.unit)), React.createElement("input", {
-    type: "range",
-    min: param.min,
-    max: param.max,
-    step: param.step,
-    value: val,
-    onChange: (e) => onChange(parseFloat(e.target.value)),
-    style: { width: "100%", marginBottom: 6 }
-  }), linkedInfo && React.createElement("div", {
-    style: { ...mono, fontSize: 8, color: C.muted, marginBottom: 6, padding: "6px", background: C.bg, borderRadius: 4 }
-  }, "Rec: ", linkedInfo.rec, " (", linkedInfo.reason, ")"), alerts.length > 0 && React.createElement("div", null, alerts.map((a, i) => React.createElement(AlertBox, _extends({}, a, { key: i })))));
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: C.muted
+    }
+  }, "Calculated Film Thickness"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...mono,
+      fontSize: 14,
+      color: C.gold,
+      fontWeight: 700
+    }
+  }, prop.linked._thick, " nm")), prop.linked._ri && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      background: `${C.accent}0D`,
+      border: `1px solid ${C.accent}22`,
+      borderRadius: 8,
+      padding: "7px 12px",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: C.muted
+    }
+  }, "Refractive Index (RI)"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...mono,
+      fontSize: 14,
+      fontWeight: 700,
+      color: parseFloat(prop.linked._ri) > 2.08 ? C.red : parseFloat(prop.linked._ri) < 1.95 ? C.amber : C.green
+    }
+  }, prop.linked._ri)), prop.linked._budget && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      background: `${C.accent}0D`,
+      border: `1px solid ${C.accent}22`,
+      borderRadius: 8,
+      padding: "7px 12px",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 12,
+      color: C.muted
+    }
+  }, "Thermal Budget Ratio"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...mono,
+      fontSize: 14,
+      fontWeight: 700,
+      color: parseFloat(prop.linked._budget) > 1.05 ? C.red : parseFloat(prop.linked._budget) < 0.95 ? C.amber : C.green
+    }
+  }, prop.linked._budget)), prop.alerts.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Divider, {
+    label: "Process Alerts"
+  }), prop.alerts.map((a, i) => /*#__PURE__*/React.createElement(AlertBox, _extends({
+    key: i
+  }, a)))), /*#__PURE__*/React.createElement(Divider, {
+    label: "Cell Electrical Output"
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 8,
+      marginBottom: 12
+    }
+  }, [{
+    k: "Voc",
+    l: "Voc",
+    u: "mV",
+    v: fin.Voc,
+    b: 720,
+    d: 1,
+    c: "#4FC3F7"
+  }, {
+    k: "Jsc",
+    l: "Jsc",
+    u: "mA/cm²",
+    v: fin.Jsc,
+    b: 39.5,
+    d: 2,
+    c: "#81C784"
+  }, {
+    k: "FF",
+    l: "FF",
+    u: "%",
+    v: fin.FF,
+    b: 83.2,
+    d: 1,
+    c: "#CE93D8"
+  }, {
+    k: "Rs",
+    l: "Rs",
+    u: "mΩ",
+    v: fin.Rs,
+    b: 2.2,
+    d: 2,
+    c: "#FFCC02"
+  }, {
+    k: "Rsh",
+    l: "Rsh",
+    u: "Ω",
+    v: fin.Rsh,
+    b: 600,
+    d: 0,
+    c: "#80CBC4"
+  }, {
+    k: "Eta",
+    l: "Eta",
+    u: "%",
+    v: fin.Eta,
+    b: 24.5,
+    d: 2,
+    c: C.gold
+  }].map(k => /*#__PURE__*/React.createElement(KPI, {
+    key: k.k,
+    label: k.l,
+    val: k.v,
+    base: k.b,
+    dec: k.d,
+    color: k.c,
+    unit: k.u
+  }))), /*#__PURE__*/React.createElement(Divider, {
+    label: "This Step Impact"
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: C.surf,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 12,
+      padding: "10px 14px"
+    }
+  }, ["Voc", "Jsc", "FF", "Rs", "Rsh", "Eta"].map(k => {
+    const d = elec[k]?.d ?? 0;
+    const u = {
+      Voc: "mV",
+      Jsc: "mA",
+      FF: "%",
+      Rs: "mΩ",
+      Rsh: "Ω",
+      Eta: "%"
+    }[k];
+    const col = d > 0 ? C.green : d < 0 ? C.red : C.muted;
+    return /*#__PURE__*/React.createElement("div", {
+      key: k,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        padding: "7px 0",
+        borderBottom: `1px solid ${C.grid}`
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...mono,
+        fontSize: 12,
+        fontWeight: 700,
+        color: col,
+        width: 28
+      }
+    }, k), /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...mono,
+        fontSize: 13,
+        fontWeight: 700,
+        color: col,
+        width: 90
+      }
+    }, d === 0 ? "≈ 0" : `${d > 0 ? "+" : ""}${d.toFixed(2)} ${u}`), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        height: 4,
+        background: C.bdr,
+        borderRadius: 2,
+        overflow: "hidden"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        height: "100%",
+        width: `${Math.min(100, Math.abs(d) * 6)}%`,
+        background: col,
+        borderRadius: 2,
+        transition: "width 0.4s"
+      }
+    })));
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: `${etaC}11`,
+      border: `1px solid ${etaC}44`,
+      borderRadius: 12,
+      padding: "14px",
+      marginTop: 12,
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 9,
+      color: C.muted,
+      letterSpacing: 3,
+      textTransform: "uppercase",
+      marginBottom: 4
+    }
+  }, "LIVE COMBINED ETA (ALL STEPS)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...mono,
+      fontSize: 32,
+      fontWeight: 700,
+      color: etaC
+    }
+  }, totalEta.toFixed(2), "%"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...mono,
+      fontSize: 11,
+      color: C.muted,
+      marginTop: 2
+    }
+  }, "vs baseline 24.50% (", totalEta - 24.5 >= 0 ? "+" : "", (totalEta - 24.5).toFixed(2), "%)"))));
 }
 
-function StepPanel({ step, vals, onChange, onAskAI }) {
-  const stepVals = vals[step.key];
-  const propa = step.propagate(stepVals);
-  const elec = step.elec(stepVals);
-  const fin = getStepFin(vals, step.key);
-
-  return React.createElement("div", {
-    style: { marginBottom: 20, padding: "12px 0" }
-  }, React.createElement("div", {
-    style: { display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }
-  }, React.createElement("span", {
-    style: { fontSize: 24 }
-  }, step.icon), React.createElement("h3", {
-    style: { ...raj, fontSize: 16, fontWeight: 700, color: step.color, flex: 1 }
-  }, step.label), React.createElement(Chip, { color: step.color, small: true }, step.short), React.createElement("button", {
-    onClick: () => onAskAI(step),
+// ─── AI RECIPE OPTIMIZER ──────────────────────────────────────────────────────
+function AIRecipeOptimizer({
+  vals
+}) {
+  const [goal, setGoal] = useState("maximize Eta above 25%");
+  const [constraint, setConstraint] = useState("keep FF > 83%");
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState("");
+  const currentState = STEPS.map(s => {
+    const e = s.elec(vals[s.key]);
+    return `${s.label}: ${s.params.map(p => `${p.label}=${vals[s.key][p.key]}${p.unit}`).join(", ")} → Eta impact: ${(e.Eta?.d ?? 0).toFixed(2)}%`;
+  }).join("\n");
+  async function optimize() {
+    setLoading(true);
+    setResult("");
+    try {
+      const res = await callClaude(`You are an expert TOPCon solar cell process engineer at a top Chinese manufacturer (LONGi, Jinko, Trina level). 
+You optimize process recipes to maximize cell efficiency. You understand process physics deeply.
+Respond in this EXACT format:
+1. DIAGNOSIS: Current recipe analysis (2-3 sentences)
+2. TOP 3 OPTIMIZATIONS: Each with: Parameter → FROM → TO → Expected Eta gain
+3. CAUTIONS: What to watch out for
+4. PREDICTED OUTCOME: New Eta estimate
+Be very specific with numbers. Use engineering language.`, `Current TOPCon process state:\n${currentState}\n\nOptimization goal: ${goal}\nConstraint: ${constraint}\n\nProvide specific recipe recommendations.`, 800);
+      setResult(res);
+    } catch (e) {
+      setResult("API error. Check connection.");
+    }
+    setLoading(false);
+  }
+  return /*#__PURE__*/React.createElement("div", {
     style: {
-      background: `${step.color}22`,
-      border: `1px solid ${step.color}`,
-      color: step.color,
-      padding: "4px 8px",
-      borderRadius: 4,
-      fontSize: 9,
-      cursor: "pointer",
-      fontWeight: 600,
-      transition: "all 0.2s"
+      flex: 1,
+      overflowY: "auto",
+      WebkitOverflowScrolling: "touch",
+      padding: "14px 14px 24px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: `linear-gradient(135deg,${C.accent}15,${C.purple}15)`,
+      border: `1px solid ${C.accent}33`,
+      borderRadius: 12,
+      padding: 14,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 10,
+      background: `linear-gradient(135deg,${C.accent},${C.purple})`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 20
+    }
+  }, "\u2726"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 16,
+      fontWeight: 700,
+      color: C.accent,
+      letterSpacing: 2
+    }
+  }, "AI RECIPE OPTIMIZER"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: C.muted
+    }
+  }, "Claude AI \xB7 Process Physics Engine"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 10,
+      letterSpacing: 2,
+      color: C.muted,
+      marginBottom: 5
+    }
+  }, "OPTIMIZATION GOAL"), /*#__PURE__*/React.createElement("input", {
+    value: goal,
+    onChange: e => setGoal(e.target.value),
+    style: {
+      width: "100%",
+      background: C.panel,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 8,
+      padding: "10px 12px",
+      color: C.text,
+      fontSize: 13,
+      outline: "none",
+      fontFamily: "'Exo 2',sans-serif"
     },
-    onMouseEnter: (e) => { e.target.style.background = `${step.color}44`; e.target.style.boxShadow = `0 0 8px ${step.color}66`; },
-    onMouseLeave: (e) => { e.target.style.background = `${step.color}22`; e.target.style.boxShadow = ""; }
-  }, "Ask AI")), Divider({ label: "Parameters" }), step.params.map(p => React.createElement(ParamSlider, {
-    key: p.key,
-    param: p,
-    val: stepVals[p.key],
-    onChange: (v) => onChange(step.key, p.key, v),
-    linked: propa.linked,
-    alerts: propa.alerts
-  })), Divider({ label: "Electrical Results" }), React.createElement("div", {
-    style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }
-  }, React.createElement(KPI, {
-    label: "Voc",
-    val: fin.Voc,
-    base: BASELINE.Voc,
-    dec: 0,
-    color: elec.Voc?.d > 0 ? C.green : C.red,
-    unit: "mV"
-  }), React.createElement(KPI, {
-    label: "Jsc",
-    val: fin.Jsc,
-    base: BASELINE.Jsc,
-    dec: 2,
-    color: elec.Jsc?.d > 0 ? C.green : C.red,
-    unit: "mA"
-  }), React.createElement(KPI, {
-    label: "FF",
-    val: fin.FF,
-    base: BASELINE.FF,
-    dec: 2,
-    color: elec.FF?.d > 0 ? C.green : C.red,
-    unit: "%"
-  }), React.createElement(KPI, {
-    label: "Eta",
-    val: fin.Eta,
-    base: BASELINE.Eta,
-    dec: 2,
-    color: elec.Eta?.d > 0 ? C.green : C.red,
-    unit: "%"
+    placeholder: "e.g. maximize Eta above 25%"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 10,
+      letterSpacing: 2,
+      color: C.muted,
+      marginBottom: 5
+    }
+  }, "CONSTRAINT"), /*#__PURE__*/React.createElement("input", {
+    value: constraint,
+    onChange: e => setConstraint(e.target.value),
+    style: {
+      width: "100%",
+      background: C.panel,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 8,
+      padding: "10px 12px",
+      color: C.text,
+      fontSize: 13,
+      outline: "none",
+      fontFamily: "'Exo 2',sans-serif"
+    },
+    placeholder: "e.g. keep FF > 83%, Rs < 2.5 m\u03A9"
+  })), /*#__PURE__*/React.createElement("button", {
+    onClick: optimize,
+    disabled: loading,
+    style: {
+      width: "100%",
+      padding: "13px",
+      borderRadius: 10,
+      border: "none",
+      cursor: "pointer",
+      background: loading ? C.panel : `linear-gradient(135deg,${C.accdim},${C.accent})`,
+      color: loading ? C.muted : "#000",
+      ...raj,
+      fontWeight: 700,
+      fontSize: 14,
+      letterSpacing: 2
+    }
+  }, loading ? "ANALYZING..." : "✦ OPTIMIZE RECIPE")), /*#__PURE__*/React.createElement(Divider, {
+    label: "Current Recipe State"
+  }), STEPS.map(s => {
+    const e = s.elec(vals[s.key]);
+    const d = e.Eta?.d ?? 0;
+    return /*#__PURE__*/React.createElement("div", {
+      key: s.key,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        padding: "8px 0",
+        borderBottom: `1px solid ${C.grid}`
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 3,
+        height: 28,
+        borderRadius: 2,
+        background: s.color,
+        flexShrink: 0
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...raj,
+        fontSize: 12,
+        fontWeight: 600
+      }
+    }, s.label), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: C.muted
+      }
+    }, s.params.slice(0, 2).map(p => `${p.label}: ${vals[s.key][p.key]}${p.unit}`).join(" · "))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...mono,
+        fontSize: 13,
+        fontWeight: 700,
+        color: d > 0 ? C.green : d < 0 ? C.red : C.muted
+      }
+    }, d >= 0 ? "+" : "", d.toFixed(2), "%"));
+  }), loading && /*#__PURE__*/React.createElement(Loader, {
+    text: "AI analyzing your recipe against 1000+ process combinations..."
+  }), result && /*#__PURE__*/React.createElement(AiResponse, {
+    text: result
+  }));
+}
+
+// ─── YIELD PREDICTOR ──────────────────────────────────────────────────────────
+function YieldPredictor({
+  vals
+}) {
+  const [wafersIn, setWafersIn] = useState(10000);
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState("");
+  const [localYield, setLocalYield] = useState(null);
+  function computeYield() {
+    const allE = getAllElec(vals);
+    const totalEta = getTotalEta(vals);
+    const alerts = STEPS.flatMap(s => s.propagate(vals[s.key]).alerts);
+    const critCount = alerts.filter(a => a.lvl === "C").length;
+    const warnCount = alerts.filter(a => a.lvl === "W").length;
+    const baseYield = 99.5;
+    const etaPenalty = Math.max(0, (24.0 - totalEta) * 5);
+    const alertPenalty = critCount * 2.5 + warnCount * 0.8;
+    const predictedYield = Math.max(85, baseYield - etaPenalty - alertPenalty);
+    const etaBins = {
+      "≥25.0%": Math.round(wafersIn * Math.max(0, (totalEta - 25.0) / 1.5) * (predictedYield / 100) * 0.3),
+      "24.5–25.0%": Math.round(wafersIn * 0.35 * (predictedYield / 100)),
+      "24.0–24.5%": Math.round(wafersIn * 0.30 * (predictedYield / 100)),
+      "23.5–24.0%": Math.round(wafersIn * 0.20 * (predictedYield / 100)),
+      "<23.5% (scrap)": Math.round(wafersIn * (1 - predictedYield / 100))
+    };
+    setLocalYield({
+      predictedYield,
+      etaBins,
+      critCount,
+      warnCount,
+      totalEta,
+      wafersIn
+    });
+  }
+  useEffect(() => {
+    computeYield();
+  }, [vals, wafersIn]);
+  async function getAIAnalysis() {
+    setLoading(true);
+    setResult("");
+    try {
+      const res = await callClaude(`You are a TOPCon solar cell yield analysis expert. Analyze yield data and provide manufacturing insights. Be concise and specific with percentages and wafer counts.`, `Recipe state: Eta=${localYield?.totalEta.toFixed(2)}%, Critical alerts: ${localYield?.critCount}, Warnings: ${localYield?.warnCount}
+Predicted yield: ${localYield?.predictedYield.toFixed(1)}%
+Wafer input: ${wafersIn} pcs
+Bin distribution: ${JSON.stringify(localYield?.etaBins)}
+
+Provide: 1) Yield loss root causes 2) Which bins to improve 3) Top 2 recipe changes to boost yield 4) Expected yield after fix`, 600);
+      setResult(res);
+    } catch (e) {
+      setResult("API error.");
+    }
+    setLoading(false);
+  }
+  const y = localYield;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      overflowY: "auto",
+      WebkitOverflowScrolling: "touch",
+      padding: "14px 14px 24px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: C.surf,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 12,
+      padding: 14,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 10,
+      background: `linear-gradient(135deg,${C.green},#059669)`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 20
+    }
+  }, "\uD83D\uDCC8"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 16,
+      fontWeight: 700,
+      color: C.green,
+      letterSpacing: 2
+    }
+  }, "YIELD PREDICTOR"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: C.muted
+    }
+  }, "AI-Enhanced \xB7 Real-time Physics Model"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 10,
+      color: C.muted,
+      letterSpacing: 2,
+      marginBottom: 5
+    }
+  }, "WAFER INPUT (PCS)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setWafersIn(Math.max(100, wafersIn - 1000)),
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 8,
+      border: `1px solid ${C.bdr}`,
+      background: C.panel,
+      color: C.accent,
+      fontSize: 18,
+      cursor: "pointer"
+    }
+  }, "\u2212"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...mono,
+      fontSize: 22,
+      color: C.text,
+      flex: 1,
+      textAlign: "center"
+    }
+  }, wafersIn.toLocaleString()), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setWafersIn(wafersIn + 1000),
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 8,
+      border: `1px solid ${C.bdr}`,
+      background: C.panel,
+      color: C.accent,
+      fontSize: 18,
+      cursor: "pointer"
+    }
+  }, "+")))), y && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: `${y.predictedYield >= 98 ? C.green : y.predictedYield >= 95 ? C.amber : C.red}15`,
+      border: `1px solid ${y.predictedYield >= 98 ? C.green : y.predictedYield >= 95 ? C.amber : C.red}44`,
+      borderRadius: 12,
+      padding: 16,
+      textAlign: "center",
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 10,
+      color: C.muted,
+      letterSpacing: 3,
+      textTransform: "uppercase",
+      marginBottom: 4
+    }
+  }, "PREDICTED YIELD"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...mono,
+      fontSize: 48,
+      fontWeight: 700,
+      color: y.predictedYield >= 98 ? C.green : y.predictedYield >= 95 ? C.amber : C.red,
+      lineHeight: 1
+    }
+  }, y.predictedYield.toFixed(1), "%"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 12,
+      color: C.muted,
+      marginTop: 4
+    }
+  }, Math.round(y.wafersIn * (y.predictedYield / 100)).toLocaleString(), " / ", y.wafersIn.toLocaleString(), " wafers pass"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "center",
+      gap: 12,
+      marginTop: 10
+    }
+  }, /*#__PURE__*/React.createElement(Chip, {
+    color: C.red,
+    small: true
+  }, y.critCount, " Critical"), /*#__PURE__*/React.createElement(Chip, {
+    color: C.amber,
+    small: true
+  }, y.warnCount, " Warnings"), /*#__PURE__*/React.createElement(Chip, {
+    color: C.accent,
+    small: true
+  }, "Eta ", y.totalEta.toFixed(2), "%"))), /*#__PURE__*/React.createElement(Divider, {
+    label: "Efficiency Bin Distribution"
+  }), Object.entries(y.etaBins).map(([bin, count]) => {
+    const pct = count / y.wafersIn * 100;
+    const isScrap = bin.includes("scrap");
+    const col = isScrap ? C.red : bin.includes("≥25") ? C.green : C.accent;
+    return /*#__PURE__*/React.createElement("div", {
+      key: bin,
+      style: {
+        marginBottom: 8
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 3
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...raj,
+        fontSize: 11,
+        fontWeight: 600,
+        color: col
+      }
+    }, bin), /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...mono,
+        fontSize: 12,
+        color: col
+      }
+    }, count.toLocaleString(), " pcs (", pct.toFixed(1), "%)")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        height: 8,
+        background: C.bdr,
+        borderRadius: 4,
+        overflow: "hidden"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        height: "100%",
+        width: `${Math.min(100, pct)}%`,
+        background: col,
+        borderRadius: 4,
+        transition: "width 0.6s"
+      }
+    })));
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: getAIAnalysis,
+    disabled: loading,
+    style: {
+      width: "100%",
+      padding: "13px",
+      borderRadius: 10,
+      border: "none",
+      cursor: "pointer",
+      marginTop: 14,
+      background: loading ? C.panel : `linear-gradient(135deg,#059669,${C.green})`,
+      color: loading ? C.muted : "#000",
+      ...raj,
+      fontWeight: 700,
+      fontSize: 14,
+      letterSpacing: 2
+    }
+  }, loading ? "ANALYZING..." : "✦ AI YIELD ANALYSIS"), loading && /*#__PURE__*/React.createElement(Loader, {
+    text: "AI analyzing yield patterns..."
+  }), result && /*#__PURE__*/React.createElement(AiResponse, {
+    text: result
   })));
 }
 
-function App() {
-  const [vals, setVals] = useState(initVals);
-  const [activeTab, setActiveTab] = useState("overview");
-  const [aiResponse, setAiResponse] = useState("");
+// ─── VIRTUAL DOE ──────────────────────────────────────────────────────────────
+function VirtualDOE({
+  vals
+}) {
+  const [step, setStep] = useState(0);
+  const [param, setParam] = useState(0);
+  const [levels, setLevels] = useState(3);
   const [loading, setLoading] = useState(false);
-  const tabNavRef = useRef(null);
-
-  const handleParamChange = useCallback((stepKey, paramKey, value) => {
-    setVals(prev => ({
-      ...prev,
-      [stepKey]: {
-        ...prev[stepKey],
-        [paramKey]: value
-      }
-    }));
-  }, []);
-
-  const handleAskAI = useCallback(async (step) => {
-    setLoading(true);
-    setAiResponse("");
-    const systemPrompt = "You are a TOPCon solar cell process engineer expert. Analyze the process parameters and provide detailed optimization recommendations with quantified efficiency gains.";
-    const userMsg = `Analyze ${step.label} step with current parameters: ${JSON.stringify(vals[step.key])}. What optimizations would improve efficiency?`;
-    const resp = await callClaude(systemPrompt, userMsg, 800);
-    setAiResponse(resp);
-    setLoading(false);
-  }, [vals]);
-
-  const eta = getTotalEta(vals);
-
-  const tabs = [
-    { key: "overview", label: "Overview", icon: "📊" },
-    { key: "tex", label: "Texturing", icon: "◈" },
-    { key: "bor", label: "Boron Diff.", icon: "⬡" },
-    { key: "lpc", label: "LPCVD", icon: "▣" },
-    { key: "ald", label: "ALD", icon: "◎" },
-    { key: "pec", label: "PECVD", icon: "⬢" },
-    { key: "fir", label: "Co-Firing", icon: "🔥" }
-  ];
-
-  const renderContent = () => {
-    if (activeTab === "overview") {
-      return React.createElement("div", null, React.createElement("h2", {
-        style: { ...raj, fontSize: 20, fontWeight: 700, color: C.accent, marginBottom: 16 }
-      }, "TOPCon AI Process Optimizer"), React.createElement("div", {
-        style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 20 }
-      }, React.createElement(KPI, {
-        label: "Total Eta",
-        val: eta,
-        base: BASELINE.Eta,
-        dec: 2,
-        color: eta > BASELINE.Eta ? C.green : C.red,
-        unit: "%"
-      }), React.createElement(KPI, {
-        label: "Voc",
-        val: BASELINE.Voc + getAllElec(vals).reduce((s, e) => s + (e.Voc?.d ?? 0), 0),
-        base: BASELINE.Voc,
-        dec: 0,
-        color: C.accent,
-        unit: "mV"
-      }), React.createElement(KPI, {
-        label: "Jsc",
-        val: BASELINE.Jsc + getAllElec(vals).reduce((s, e) => s + (e.Jsc?.d ?? 0), 0),
-        base: BASELINE.Jsc,
-        dec: 2,
-        color: C.accent,
-        unit: "mA"
-      }), React.createElement(KPI, {
-        label: "FF",
-        val: BASELINE.FF + getAllElec(vals).reduce((s, e) => s + (e.FF?.d ?? 0), 0),
-        base: BASELINE.FF,
-        dec: 2,
-        color: C.accent,
-        unit: "%"
-      })), Divider({ label: "Quick Start" }), React.createElement("p", {
-        style: { color: C.muted, fontSize: 12, lineHeight: 1.6, marginBottom: 12 }
-      }, "Use the tabs below to adjust process parameters for each manufacturing step. The system will automatically calculate electrical performance impacts in real-time."), aiResponse && React.createElement("div", {
-        style: {
-          background: `${C.purple}11`,
-          border: `1px solid ${C.purple}`,
-          borderRadius: 8,
-          padding: 12,
-          marginTop: 16
+  const [result, setResult] = useState("");
+  const [doeResults, setDoeResults] = useState(null);
+  const selStep = STEPS[step];
+  const selParam = selStep.params[param];
+  function runDOE() {
+    const p = selParam;
+    const range = p.max - p.min;
+    const start = Math.max(p.min, p.target - range * 0.2);
+    const end = Math.min(p.max, p.target + range * 0.2);
+    const points = Array.from({
+      length: levels
+    }, (_, i) => start + (end - start) * i / (levels - 1));
+    const results = points.map(v => {
+      const testVals = {
+        ...vals,
+        [selStep.key]: {
+          ...vals[selStep.key],
+          [p.key]: parseFloat(v.toFixed(2))
         }
-      }, React.createElement("div", {
-        style: { ...mono, fontSize: 11, color: C.purple, whiteSpace: "pre-wrap", lineHeight: 1.5 }
-      }, aiResponse)), loading && React.createElement("div", {
-        style: { textAlign: "center", padding: 20 }
-      }, React.createElement("span", {
-        style: { ...mono, fontSize: 12, color: C.accent, animation: "pulse 1.5s infinite" }
-      }, "⊙ Thinking...")));
+      };
+      const e = selStep.elec(testVals[selStep.key]);
+      const tot = BASELINE.Eta + getAllElec(testVals).reduce((s, ee) => s + (ee.Eta?.d ?? 0), 0);
+      return {
+        v: parseFloat(v.toFixed(2)),
+        Eta: parseFloat(tot.toFixed(3)),
+        Voc: parseFloat((BASELINE.Voc + (e.Voc?.d ?? 0)).toFixed(1)),
+        FF: parseFloat((BASELINE.FF + (e.FF?.d ?? 0)).toFixed(2)),
+        Rs: parseFloat((BASELINE.Rs + (e.Rs?.d ?? 0)).toFixed(3))
+      };
+    });
+    const best = results.reduce((a, b) => b.Eta > a.Eta ? b : a);
+    setDoeResults({
+      points: results,
+      best,
+      param: p,
+      step: selStep
+    });
+  }
+  useEffect(() => {
+    setDoeResults(null);
+    setResult("");
+  }, [step, param, levels]);
+  async function getAIInsight() {
+    setLoading(true);
+    setResult("");
+    try {
+      const res = await callClaude(`You are a DOE (Design of Experiments) expert for TOPCon solar cell manufacturing. Analyze DOE results and give actionable insights.`, `DOE Results for ${selStep.label} - ${selParam.label}:
+${JSON.stringify(doeResults?.points, null, 2)}
+Best point: ${selParam.label}=${doeResults?.best.v}${selParam.unit} → Eta=${doeResults?.best.Eta}%
+
+Provide: 1) Optimal operating window 2) Response curve shape 3) Interaction risks 4) Recommended setpoint with tolerance`, 600);
+      setResult(res);
+    } catch (e) {
+      setResult("API error.");
     }
-
-    const step = STEPS.find(s => s.key === activeTab);
-    if (step) {
-      return React.createElement(StepPanel, {
-        step,
-        vals,
-        onChange: handleParamChange,
-        onAskAI: handleAskAI
-      });
+    setLoading(false);
+  }
+  
+  // DOE Chart Component
+  function DOEChart({ points, param, best }) {
+    if (!points || points.length < 2) return null;
+    const W = 340, H = 150, pad = { t: 22, r: 16, b: 32, l: 52 };
+    const iW = W - pad.l - pad.r, iH = H - pad.t - pad.b;
+    const xs = points.map(p => p.v), ys = points.map(p => p.Eta);
+    const xMin = Math.min(...xs), xMax = Math.max(...xs);
+    const yMin = Math.min(...ys), yMax = Math.max(...ys);
+    const ySpan = yMax - yMin;
+    const yMinPlot = yMin - ySpan * 0.15, yMaxPlot = yMax + ySpan * 0.15;
+    const px = v => pad.l + (v - xMin) / (xMax - xMin || 1) * iW;
+    const py = v => pad.t + (1 - (v - yMinPlot) / (yMaxPlot - yMinPlot || 1)) * iH;
+    const polyPts = points.map(p => `${px(p.v)},${py(p.Eta)}`).join(" ");
+    const gid = "g" + Math.random().toString(36).slice(2, 7);
+    return React.createElement("div", {
+      className: "slide-up",
+      style: { background: "#081524", border: "1px solid #152840", borderRadius: 12, padding: "12px 10px 8px", marginBottom: 12 }
+    },
+      React.createElement("div", { style: { fontFamily: "'Rajdhani',sans-serif", fontSize: 9, color: "#3D6080", letterSpacing: 2, marginBottom: 6, paddingLeft: 2 } }, "ETA RESPONSE CURVE"),
+      React.createElement("svg", { width: "100%", viewBox: `0 0 ${W} ${H}`, style: { overflow: "visible" } },
+        React.createElement("defs", null,
+          React.createElement("linearGradient", { id: gid, x1: "0", y1: "0", x2: "0", y2: "1" },
+            React.createElement("stop", { offset: "0%", stopColor: "#00D4FF", stopOpacity: "0.25" }),
+            React.createElement("stop", { offset: "100%", stopColor: "#00D4FF", stopOpacity: "0.0" })
+          )
+        ),
+        [0, 0.25, 0.5, 0.75, 1].map(t => {
+          const y = pad.t + t * iH;
+          const val = yMaxPlot - (yMaxPlot - yMinPlot) * t;
+          return React.createElement("g", { key: t },
+            React.createElement("line", { x1: pad.l, y1: y, x2: pad.l + iW, y2: y, stroke: "#0F2037", strokeWidth: "1" }),
+            React.createElement("text", { x: pad.l - 4, y: y + 4, textAnchor: "end", fill: "#3D6080", fontSize: "8", fontFamily: "'Share Tech Mono',monospace" }, val.toFixed(2))
+          );
+        }),
+        points.map((p, i) => React.createElement("text", { key: "x" + i, x: px(p.v), y: H - 4, textAnchor: "middle", fill: "#3D6080", fontSize: "8", fontFamily: "'Share Tech Mono',monospace" }, p.v)),
+        React.createElement("polygon", { points: `${px(xs[0])},${py(yMinPlot)} ${polyPts} ${px(xs[xs.length - 1])},${py(yMinPlot)}`, fill: `url(#${gid})` }),
+        React.createElement("polyline", { points: polyPts, fill: "none", stroke: "#00D4FF", strokeWidth: "2.5", strokeLinejoin: "round", strokeLinecap: "round" }),
+        points.map((p, i) => {
+          const isBest = p.v === best?.v;
+          return React.createElement("g", { key: "pt" + i },
+            React.createElement("circle", { cx: px(p.v), cy: py(p.Eta), r: isBest ? 6 : 3.5, fill: isBest ? "#F59E0B" : "#00D4FF", stroke: "#03080F", strokeWidth: "1.5" }),
+            isBest && React.createElement("circle", { cx: px(p.v), cy: py(p.Eta), r: 10, fill: "none", stroke: "#F59E0B", strokeWidth: "1", strokeDasharray: "3,2", opacity: ".7" })
+          );
+        }),
+        React.createElement("text", { x: pad.l + iW / 2, y: H + 2, textAnchor: "middle", fill: "#3D6080", fontSize: "8", fontFamily: "'Rajdhani',sans-serif" }, `${param?.label} (${param?.unit})`)
+      )
+    );
+  }
+  
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      overflowY: "auto",
+      WebkitOverflowScrolling: "touch",
+      padding: "14px 14px 24px"
     }
-
-    return React.createElement("div", null, "Tab not found");
-  };
-
-  return React.createElement("div", {
-    style: { display: "flex", flexDirection: "column", height: "100%", background: C.bg }
-  }, React.createElement("div", {
-    className: "main-content"
-  }, React.createElement("div", {
-    style: { padding: "16px" }
-  }, renderContent())), React.createElement("div", {
-    className: "tab-nav-container"
-  }, React.createElement("div", {
-    className: "tab-nav",
-    ref: tabNavRef
-  }, tabs.map(tab => React.createElement("button", {
-    key: tab.key,
-    className: `tab-btn ${activeTab === tab.key ? "active" : ""}`,
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: C.surf,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 12,
+      padding: 14,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 10,
+      background: `linear-gradient(135deg,${C.purple},#7C3AED)`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 20
+    }
+  }, "\uD83D\uDD2C"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 16,
+      fontWeight: 700,
+      color: C.purple,
+      letterSpacing: 2
+    }
+  }, "VIRTUAL DOE"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: C.muted
+    }
+  }, "Design of Experiments \xB7 Simulation Engine"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 10,
+      color: C.muted,
+      letterSpacing: 2,
+      marginBottom: 5
+    }
+  }, "PROCESS STEP"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      flexWrap: "wrap"
+    }
+  }, STEPS.map((s, i) => /*#__PURE__*/React.createElement("button", {
+    key: s.key,
     onClick: () => {
-      setActiveTab(tab.key);
-      setAiResponse("");
+      setStep(i);
+      setParam(0);
+    },
+    style: {
+      padding: "6px 10px",
+      borderRadius: 8,
+      border: `1px solid ${i === step ? s.color : C.bdr}`,
+      background: i === step ? `${s.color}22` : C.panel,
+      color: i === step ? s.color : C.muted,
+      cursor: "pointer",
+      ...raj,
+      fontSize: 10,
+      fontWeight: 600,
+      letterSpacing: 1
     }
-  }, React.createElement("span", {
-    className: "tab-icon"
-  }, tab.icon), React.createElement("span", {
-    className: "tab-label"
-  }, tab.label))))));
+  }, s.short)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 10,
+      color: C.muted,
+      letterSpacing: 2,
+      marginBottom: 5
+    }
+  }, "PARAMETER TO SWEEP"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      flexWrap: "wrap"
+    }
+  }, selStep.params.map((p, i) => /*#__PURE__*/React.createElement("button", {
+    key: p.key,
+    onClick: () => setParam(i),
+    style: {
+      padding: "6px 10px",
+      borderRadius: 8,
+      border: `1px solid ${i === param ? C.accent : C.bdr}`,
+      background: i === param ? `${C.accent}22` : C.panel,
+      color: i === param ? C.accent : C.muted,
+      cursor: "pointer",
+      ...raj,
+      fontSize: 10,
+      fontWeight: 600
+    }
+  }, p.label)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 10,
+      color: C.muted,
+      letterSpacing: 2,
+      marginBottom: 5
+    }
+  }, "NUMBER OF LEVELS: ", levels), /*#__PURE__*/React.createElement("input", {
+    type: "range",
+    min: 3,
+    max: 9,
+    step: 2,
+    value: levels,
+    onChange: e => setLevels(parseInt(e.target.value)),
+    style: {
+      WebkitAppearance: "none",
+      appearance: "none",
+      width: "100%",
+      height: 5,
+      borderRadius: 3,
+      outline: "none",
+      cursor: "pointer",
+      background: `linear-gradient(to right,${C.purple} ${(levels - 3) / 6 * 100}%,${C.bdr} ${(levels - 3) / 6 * 100}%)`
+    }
+  })), /*#__PURE__*/React.createElement("button", {
+    onClick: runDOE,
+    style: {
+      width: "100%",
+      padding: "13px",
+      borderRadius: 10,
+      border: "none",
+      cursor: "pointer",
+      background: `linear-gradient(135deg,#7C3AED,${C.purple})`,
+      color: "#fff",
+      ...raj,
+      fontWeight: 700,
+      fontSize: 14,
+      letterSpacing: 2
+    }
+  }, "\u25B6 RUN DOE SIMULATION")), doeResults && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Divider, {
+    label: `DOE Results: ${selStep.label} · ${selParam.label}`
+  }), /*#__PURE__*/React.createElement(DOEChart, {
+    points: doeResults.points,
+    param: selParam,
+    best: doeResults.best
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: C.surf,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 12,
+      overflow: "hidden",
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+      background: C.panel
+    }
+  }, [selParam.label, "Eta %", "Voc mV", "FF %", "Rs mΩ"].map(h => /*#__PURE__*/React.createElement("div", {
+    key: h,
+    style: {
+      ...raj,
+      fontSize: 9,
+      color: C.muted,
+      letterSpacing: 1,
+      padding: "8px 6px",
+      textAlign: "center",
+      borderBottom: `1px solid ${C.bdr}`
+    }
+  }, h))), doeResults.points.map((pt, i) => {
+    const isBest = pt.v === doeResults.best.v;
+    const etaMin = Math.min(...doeResults.points.map(p => p.Eta));
+    const etaMax = Math.max(...doeResults.points.map(p => p.Eta));
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: {
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+        background: isBest ? `${C.green}11` : i % 2 === 0 ? C.surf : C.bg,
+        borderBottom: `1px solid ${C.grid}`,
+        border: isBest ? `1px solid ${C.green}44` : ""
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...mono,
+        fontSize: 11,
+        padding: "8px 6px",
+        textAlign: "center",
+        color: isBest ? C.gold : C.accent
+      }
+    }, pt.v, selParam.unit, isBest ? " ★" : ""), /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...mono,
+        fontSize: 11,
+        padding: "8px 6px",
+        textAlign: "center",
+        color: isBest ? C.green : C.text
+      }
+    }, pt.Eta), /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...mono,
+        fontSize: 10,
+        padding: "8px 6px",
+        textAlign: "center",
+        color: C.muted
+      }
+    }, pt.Voc), /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...mono,
+        fontSize: 10,
+        padding: "8px 6px",
+        textAlign: "center",
+        color: C.muted
+      }
+    }, pt.FF), /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...mono,
+        fontSize: 10,
+        padding: "8px 6px",
+        textAlign: "center",
+        color: C.muted
+      }
+    }, pt.Rs));
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: `${C.green}11`,
+      border: `1px solid ${C.green}44`,
+      borderRadius: 12,
+      padding: 14,
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 11,
+      color: C.green,
+      fontWeight: 700,
+      letterSpacing: 2,
+      marginBottom: 6
+    }
+  }, "\u2605 OPTIMAL SETPOINT"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...mono,
+      fontSize: 22,
+      color: C.green,
+      fontWeight: 700
+    }
+  }, selParam.label, " = ", doeResults.best.v, " ", selParam.unit), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...mono,
+      fontSize: 13,
+      color: C.muted,
+      marginTop: 4
+    }
+  }, "\u2192 Eta ", doeResults.best.Eta, "% \xB7 Voc ", doeResults.best.Voc, "mV \xB7 FF ", doeResults.best.FF, "%")), /*#__PURE__*/React.createElement("button", {
+    onClick: getAIInsight,
+    disabled: loading,
+    style: {
+      width: "100%",
+      padding: "13px",
+      borderRadius: 10,
+      border: "none",
+      cursor: "pointer",
+      background: loading ? C.panel : `linear-gradient(135deg,#7C3AED,${C.purple})`,
+      color: loading ? C.muted : "#fff",
+      ...raj,
+      fontWeight: 700,
+      fontSize: 14,
+      letterSpacing: 2
+    }
+  }, loading ? "ANALYZING..." : "✦ AI DOE INSIGHT"), loading && /*#__PURE__*/React.createElement(Loader, {
+    text: "AI analyzing DOE response surface..."
+  }), result && /*#__PURE__*/React.createElement(AiResponse, {
+    text: result
+  })));
 }
 
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+// ─── WHAT-IF SIMULATION ───────────────────────────────────────────────────────
+function WhatIfSimulation({
+  vals
+}) {
+  const [scenarios, setScenarios] = useState([{
+    id: 1,
+    name: "Optimal Recipe",
+    vals: JSON.parse(JSON.stringify(vals))
+  }]);
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState("");
+  const [editing, setEditing] = useState(null);
+  function addScenario() {
+    const id = Date.now();
+    setScenarios(s => [...s, {
+      id,
+      name: `Scenario ${s.length + 1}`,
+      vals: JSON.parse(JSON.stringify(vals))
+    }]);
+  }
+  function removeScenario(id) {
+    setScenarios(s => s.filter(x => x.id !== id));
+  }
+  function updateScenarioParam(id, stepKey, pk, v) {
+    setScenarios(s => s.map(sc => sc.id !== id ? sc : {
+      ...sc,
+      vals: {
+        ...sc.vals,
+        [stepKey]: {
+          ...sc.vals[stepKey],
+          [pk]: v
+        }
+      }
+    }));
+  }
+  async function compareWithAI() {
+    setLoading(true);
+    setResult("");
+    const data = scenarios.map(sc => ({
+      name: sc.name,
+      eta: getTotalEta(sc.vals).toFixed(2),
+      params: STEPS.map(s => ({
+        step: s.label,
+        ...s.params.reduce((o, p) => ({
+          ...o,
+          [p.label]: sc.vals[s.key][p.key]
+        }), {})
+      }))
+    }));
+    try {
+      const res = await callClaude(`You are an expert TOPCon process engineer comparing multiple recipe scenarios. Be specific and decisive about which is best and why.`, `Compare these TOPCon process scenarios:\n${JSON.stringify(data, null, 2)}\n\nProvide: 1) Best scenario and why 2) Key differences driving performance 3) Risks of each 4) Recommended hybrid approach`, 700);
+      setResult(res);
+    } catch (e) {
+      setResult("API error.");
+    }
+    setLoading(false);
+  }
+  const selSc = editing ? scenarios.find(s => s.id === editing) : null;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      overflowY: "auto",
+      WebkitOverflowScrolling: "touch",
+      padding: "14px 14px 24px"
+    }
+  }, !editing ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 10,
+      background: `linear-gradient(135deg,${C.gold},#D97706)`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 20
+    }
+  }, "\u26A1"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 16,
+      fontWeight: 700,
+      color: C.gold,
+      letterSpacing: 2
+    }
+  }, "WHAT-IF SIMULATION"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: C.muted
+    }
+  }, "Multi-Scenario Recipe Comparison"))), scenarios.map((sc, i) => {
+    const eta = getTotalEta(sc.vals);
+    const d = eta - BASELINE.Eta;
+    const col = eta >= 24.5 ? C.green : eta >= 24.0 ? C.amber : C.red;
+    return /*#__PURE__*/React.createElement("div", {
+      key: sc.id,
+      style: {
+        background: C.surf,
+        border: `1px solid ${C.bdr}`,
+        borderRadius: 12,
+        padding: 14,
+        marginBottom: 10
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 10
+      }
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...raj,
+        fontSize: 14,
+        fontWeight: 700,
+        color: C.text
+      }
+    }, sc.name), /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...mono,
+        fontSize: 11,
+        color: C.muted,
+        marginTop: 2
+      }
+    }, "Eta ", eta.toFixed(2), "% \xB7 ", d >= 0 ? "+" : "", d.toFixed(2), "% vs baseline")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...mono,
+        fontSize: 28,
+        fontWeight: 700,
+        color: col
+      }
+    }, eta.toFixed(2), "%")), STEPS.map(s => {
+      const e = s.elec(sc.vals[s.key]);
+      const d2 = e.Eta?.d ?? 0;
+      return /*#__PURE__*/React.createElement("div", {
+        key: s.key,
+        style: {
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          marginBottom: 3
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          width: 3,
+          height: 12,
+          borderRadius: 2,
+          background: s.color,
+          flexShrink: 0
+        }
+      }), /*#__PURE__*/React.createElement("span", {
+        style: {
+          ...raj,
+          fontSize: 9,
+          color: C.muted,
+          width: 60
+        }
+      }, s.short), /*#__PURE__*/React.createElement("div", {
+        style: {
+          flex: 1,
+          height: 4,
+          background: C.bdr,
+          borderRadius: 2,
+          overflow: "hidden"
+        }
+      }, d2 !== 0 && /*#__PURE__*/React.createElement("div", {
+        style: {
+          height: "100%",
+          width: `${Math.min(100, Math.abs(d2) * 20)}%`,
+          background: d2 > 0 ? C.green : C.red,
+          borderRadius: 2
+        }
+      })), /*#__PURE__*/React.createElement("span", {
+        style: {
+          ...mono,
+          fontSize: 9,
+          color: d2 > 0 ? C.green : d2 < 0 ? C.red : C.muted,
+          width: 40,
+          textAlign: "right"
+        }
+      }, d2 >= 0 ? "+" : "", d2.toFixed(2), "%"));
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 8,
+        marginTop: 10
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: () => setEditing(sc.id),
+      style: {
+        flex: 1,
+        padding: "8px",
+        borderRadius: 8,
+        border: `1px solid ${C.bdr}`,
+        background: C.panel,
+        color: C.accent,
+        cursor: "pointer",
+        ...raj,
+        fontWeight: 600,
+        fontSize: 12
+      }
+    }, "\u270E Edit Params"), scenarios.length > 1 && /*#__PURE__*/React.createElement("button", {
+      onClick: () => removeScenario(sc.id),
+      style: {
+        padding: "8px 12px",
+        borderRadius: 8,
+        border: `1px solid ${C.red}33`,
+        background: `${C.red}11`,
+        color: C.red,
+        cursor: "pointer",
+        ...raj,
+        fontWeight: 600,
+        fontSize: 12
+      }
+    }, "\u2715")));
+  }), /*#__PURE__*/React.createElement("button", {
+    onClick: addScenario,
+    style: {
+      width: "100%",
+      padding: "12px",
+      borderRadius: 10,
+      border: `2px dashed ${C.bdr}`,
+      background: "transparent",
+      color: C.muted,
+      cursor: "pointer",
+      ...raj,
+      fontWeight: 600,
+      fontSize: 13,
+      letterSpacing: 1,
+      marginBottom: 12
+    }
+  }, "+ ADD SCENARIO"), scenarios.length >= 2 && /*#__PURE__*/React.createElement("button", {
+    onClick: compareWithAI,
+    disabled: loading,
+    style: {
+      width: "100%",
+      padding: "13px",
+      borderRadius: 10,
+      border: "none",
+      cursor: "pointer",
+      background: loading ? C.panel : `linear-gradient(135deg,#D97706,${C.gold})`,
+      color: loading ? C.muted : "#000",
+      ...raj,
+      fontWeight: 700,
+      fontSize: 14,
+      letterSpacing: 2
+    }
+  }, loading ? "COMPARING..." : "✦ AI COMPARE SCENARIOS"), loading && /*#__PURE__*/React.createElement(Loader, {
+    text: "AI comparing scenarios..."
+  }), result && /*#__PURE__*/React.createElement(AiResponse, {
+    text: result
+  })) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setEditing(null),
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 8,
+      border: `1px solid ${C.bdr}`,
+      background: C.panel,
+      color: C.accent,
+      cursor: "pointer",
+      fontSize: 18
+    }
+  }, "\u2190"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 15,
+      fontWeight: 700,
+      color: C.text
+    }
+  }, "Edit: ", selSc?.name)), STEPS.map(s => /*#__PURE__*/React.createElement("div", {
+    key: s.key,
+    style: {
+      background: C.surf,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 10,
+      padding: 12,
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 12,
+      fontWeight: 700,
+      color: s.color,
+      letterSpacing: 1,
+      marginBottom: 8
+    }
+  }, s.label), s.params.map(p => {
+    const v = selSc?.vals[s.key][p.key] ?? p.def;
+    return /*#__PURE__*/React.createElement("div", {
+      key: p.key,
+      style: {
+        marginBottom: 10
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 4
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 12,
+        color: C.muted
+      }
+    }, p.label), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 4
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: () => updateScenarioParam(editing, s.key, p.key, Math.max(p.min, v - p.step)),
+      style: {
+        width: 24,
+        height: 24,
+        borderRadius: 5,
+        border: `1px solid ${C.bdr}`,
+        background: C.panel,
+        color: C.accent,
+        fontSize: 14,
+        cursor: "pointer"
+      }
+    }, "\u2212"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        ...mono,
+        fontSize: 12,
+        color: C.accent,
+        minWidth: 60,
+        textAlign: "center"
+      }
+    }, v, " ", p.unit), /*#__PURE__*/React.createElement("button", {
+      onClick: () => updateScenarioParam(editing, s.key, p.key, Math.min(p.max, v + p.step)),
+      style: {
+        width: 24,
+        height: 24,
+        borderRadius: 5,
+        border: `1px solid ${C.bdr}`,
+        background: C.panel,
+        color: C.accent,
+        fontSize: 14,
+        cursor: "pointer"
+      }
+    }, "+"))));
+  }))), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setEditing(null),
+    style: {
+      width: "100%",
+      padding: "13px",
+      borderRadius: 10,
+      border: "none",
+      cursor: "pointer",
+      background: `linear-gradient(135deg,#D97706,${C.gold})`,
+      color: "#000",
+      ...raj,
+      fontWeight: 700,
+      fontSize: 14,
+      letterSpacing: 2
+    }
+  }, "\u2713 SAVE SCENARIO")));
+}
+
+// ─── ROOT CAUSE ENGINE ─────────────────────────────────────────────────────────
+function RootCauseEngine({
+  vals
+}) {
+  const [symptom, setSymptom] = useState("");
+  const [measVoc, setMeasVoc] = useState("");
+  const [measFF, setMeasFF] = useState("");
+  const [measEta, setMeasEta] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState("");
+  const allAlerts = STEPS.flatMap(s => s.propagate(vals[s.key]).alerts.map(a => ({
+    ...a,
+    step: s.label
+  })));
+  const allElec = getAllElec(vals);
+  const totalEta = getTotalEta(vals);
+  async function diagnose() {
+    setLoading(true);
+    setResult("");
+    const processState = STEPS.map((s, i) => {
+      const e = allElec[i];
+      return `${s.label}: ${s.params.map(p => `${p.label}=${vals[s.key][p.key]}${p.unit}`).join(", ")} | Eta impact: ${(e.Eta?.d ?? 0).toFixed(2)}%`;
+    }).join("\n");
+    const alerts = allAlerts.map(a => `[${a.lvl}] ${a.step}: ${a.msg}`).join("\n") || "None";
+    try {
+      const res = await callClaude(`You are an expert TOPCon solar cell failure analyst. You diagnose process problems from symptoms and recipe data. Give decisive, specific root cause analysis like a senior process engineer would.`, `SYMPTOM REPORTED: ${symptom || "See measured values below"}
+MEASURED VALUES: Voc=${measVoc || "?"}mV, FF=${measFF || "?"}%, Eta=${measEta || "?"}%
+EXPECTED: Voc=720mV, FF=83.2%, Eta=24.5%
+
+CURRENT RECIPE STATE:
+${processState}
+
+ACTIVE ALERTS:
+${alerts}
+
+Provide EXACTLY:
+1. ROOT CAUSE (most likely, single specific cause)
+2. SECONDARY CAUSES (2 possibilities)  
+3. EVIDENCE (which data points to this)
+4. CORRECTIVE ACTION (specific parameter changes with exact values)
+5. VERIFICATION (how to confirm fix worked)`, 800);
+      setResult(res);
+    } catch (e) {
+      setResult("API error.");
+    }
+    setLoading(false);
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      overflowY: "auto",
+      WebkitOverflowScrolling: "touch",
+      padding: "14px 14px 24px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 10,
+      background: `linear-gradient(135deg,${C.red},#DC2626)`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 20
+    }
+  }, "\uD83D\uDD0D"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 16,
+      fontWeight: 700,
+      color: C.red,
+      letterSpacing: 2
+    }
+  }, "ROOT CAUSE ENGINE"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: C.muted
+    }
+  }, "AI Failure Analysis \xB7 Process Diagnostics"))), allAlerts.length > 0 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Divider, {
+    label: "Auto-Detected Issues"
+  }), allAlerts.slice(0, 5).map((a, i) => /*#__PURE__*/React.createElement(AlertBox, _extends({
+    key: i
+  }, a)))), /*#__PURE__*/React.createElement(Divider, {
+    label: "Describe the Problem"
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: C.surf,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 12,
+      padding: 14,
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 10,
+      color: C.muted,
+      letterSpacing: 2,
+      marginBottom: 5
+    }
+  }, "OBSERVED SYMPTOM"), /*#__PURE__*/React.createElement("textarea", {
+    value: symptom,
+    onChange: e => setSymptom(e.target.value),
+    rows: 3,
+    placeholder: "e.g. FF dropped from 83% to 79% after recipe change. EL shows dark regions on rear...",
+    style: {
+      width: "100%",
+      background: C.panel,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 8,
+      padding: "10px 12px",
+      color: C.text,
+      fontSize: 12,
+      outline: "none",
+      resize: "none",
+      lineHeight: 1.5,
+      fontFamily: "'Exo 2',sans-serif"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 10,
+      color: C.muted,
+      letterSpacing: 2,
+      marginBottom: 8
+    }
+  }, "MEASURED VALUES (optional)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr 1fr",
+      gap: 8,
+      marginBottom: 14
+    }
+  }, [["Voc (mV)", measVoc, setMeasVoc, "720"], ["FF (%)", measFF, setMeasFF, "83.2"], ["Eta (%)", measEta, setMeasEta, "24.5"]].map(([lbl, v, sv, ph]) => /*#__PURE__*/React.createElement("div", {
+    key: lbl
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 9,
+      color: C.muted,
+      letterSpacing: 1,
+      marginBottom: 4
+    }
+  }, lbl), /*#__PURE__*/React.createElement("input", {
+    value: v,
+    onChange: e => sv(e.target.value),
+    placeholder: ph,
+    style: {
+      width: "100%",
+      background: C.panel,
+      border: `1px solid ${C.bdr}`,
+      borderRadius: 8,
+      padding: "8px",
+      color: C.accent,
+      ...mono,
+      fontSize: 13,
+      outline: "none",
+      textAlign: "center"
+    }
+  })))), /*#__PURE__*/React.createElement("button", {
+    onClick: diagnose,
+    disabled: loading,
+    style: {
+      width: "100%",
+      padding: "13px",
+      borderRadius: 10,
+      border: "none",
+      cursor: "pointer",
+      background: loading ? C.panel : `linear-gradient(135deg,#DC2626,${C.red})`,
+      color: loading ? C.muted : "#fff",
+      ...raj,
+      fontWeight: 700,
+      fontSize: 14,
+      letterSpacing: 2
+    }
+  }, loading ? "DIAGNOSING..." : "🔍 RUN ROOT CAUSE ANALYSIS")), /*#__PURE__*/React.createElement(Divider, {
+    label: "Step-by-Step Eta Impact"
+  }), STEPS.map((s, i) => {
+    const d = allElec[i].Eta?.d ?? 0;
+    const col = d > 0 ? C.green : d < 0 ? C.red : C.muted;
+    return /*#__PURE__*/React.createElement("div", {
+      key: s.key,
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        padding: "8px 0",
+        borderBottom: `1px solid ${C.grid}`
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 3,
+        height: 28,
+        borderRadius: 2,
+        background: s.color,
+        flexShrink: 0
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...raj,
+        fontSize: 12,
+        fontWeight: 600
+      }
+    }, s.label), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: C.muted
+      }
+    }, s.params.slice(0, 2).map(p => `${p.label}: ${vals[s.key][p.key]}${p.unit}`).join(" · "))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...mono,
+        fontSize: 13,
+        fontWeight: 700,
+        color: col
+      }
+    }, d >= 0 ? "+" : "", d.toFixed(2), "%"));
+  }), loading && /*#__PURE__*/React.createElement(Loader, {
+    text: "AI running failure analysis..."
+  }), result && /*#__PURE__*/React.createElement(AiResponse, {
+    text: result
+  }));
+}
+
+// ─── MAIN APP ─────────────────────────────────────────────────────────────────
+function App() {
+  const [vals, setVals] = useState(initVals);
+  const [tab, setTab] = useState("calc");
+  const totalEta = getTotalEta(vals);
+  const etaC = totalEta >= 24.5 ? C.green : totalEta >= 24.0 ? C.amber : C.red;
+  const TABS = [{
+    key: "calc",
+    icon: "⚙",
+    label: "Calc",
+    color: C.accent
+  }, {
+    key: "ai",
+    icon: "✦",
+    label: "AI Opt",
+    color: C.purple
+  }, {
+    key: "yield",
+    icon: "📈",
+    label: "Yield",
+    color: C.green
+  }, {
+    key: "doe",
+    icon: "🔬",
+    label: "DOE",
+    color: "#A855F7"
+  }, {
+    key: "whatif",
+    icon: "⚡",
+    label: "What-If",
+    color: C.gold
+  }, {
+    key: "rootcause",
+    icon: "🔍",
+    label: "RCA",
+    color: C.red
+  }];
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      background: C.bg,
+      color: C.text,
+      fontFamily: "'Exo 2',sans-serif",
+      maxWidth: 430,
+      margin: "0 auto",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement("style", null, `
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700&display=swap');
+        *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+        input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:${C.accent};border:2px solid ${C.bg};box-shadow:0 0 8px ${C.accent}66;}
+        ::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:${C.bg};}::-webkit-scrollbar-thumb{background:${C.bdr};border-radius:2px;}
+        textarea::placeholder,input::placeholder{color:${C.muted};}
+      `), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: `linear-gradient(180deg,#05101F,${C.surf})`,
+      borderBottom: `1px solid ${C.bdr}`,
+      padding: "10px 16px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 9,
+      fontSize: 19,
+      background: `linear-gradient(135deg,${C.accdim},${C.accent})`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      boxShadow: `0 0 16px ${C.accent}44`
+    }
+  }, "\u2600"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 17,
+      fontWeight: 700,
+      letterSpacing: 2.5,
+      color: C.accent,
+      lineHeight: 1
+    }
+  }, "TOPCon AI"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 8,
+      color: C.muted,
+      letterSpacing: 2,
+      marginTop: 1
+    }
+  }, "PROCESS OPTIMIZATION PLATFORM"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "right"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 8,
+      color: C.muted,
+      letterSpacing: 2
+    }
+  }, "LIVE ETA"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...raj,
+      fontSize: 24,
+      fontWeight: 700,
+      color: etaC,
+      lineHeight: 1.1,
+      fontFamily: "'Share Tech Mono',monospace"
+    }
+  }, totalEta.toFixed(2), "%"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden"
+    }
+  }, tab === "calc" && /*#__PURE__*/React.createElement(CalcModule, {
+    vals: vals,
+    setVals: setVals
+  }), tab === "ai" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement(AIRecipeOptimizer, {
+    vals: vals
+  })), tab === "yield" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement(YieldPredictor, {
+    vals: vals
+  })), tab === "doe" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement(VirtualDOE, {
+    vals: vals
+  })), tab === "whatif" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement(WhatIfSimulation, {
+    vals: vals
+  })), tab === "rootcause" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement(RootCauseEngine, {
+    vals: vals
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      background: C.surf,
+      borderTop: `1px solid ${C.bdr}`,
+      flexShrink: 0,
+      overflowX: "auto",
+      WebkitOverflowScrolling: "touch",
+      scrollbarWidth: "none"
+    }
+  }, TABS.map(t => /*#__PURE__*/React.createElement("button", {
+    key: t.key,
+    onClick: () => setTab(t.key),
+    style: {
+      flex: "0 0 auto",
+      minWidth: 56,
+      border: "none",
+      background: "transparent",
+      cursor: "pointer",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: 1,
+      padding: "9px 8px 7px",
+      color: tab === t.key ? t.color : C.muted,
+      transition: "color 0.15s",
+      borderTop: tab === t.key ? `2px solid ${t.color}` : "2px solid transparent"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 18,
+      lineHeight: 1
+    }
+  }, t.icon), /*#__PURE__*/React.createElement("span", {
+    style: {
+      ...raj,
+      fontSize: 8,
+      letterSpacing: 0.8,
+      fontWeight: 700,
+      textTransform: "uppercase",
+      whiteSpace: "nowrap"
+    }
+  }, t.label)))));
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
 </script>
+</body>
+</html>/p>
 </body>
 </html>
