@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<html>
-<body>
-  <h1>TOPCon AI Test</h1>
-  <p> <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -30,6 +26,116 @@ button{outline:none;}
 .slide-up{animation:slideUp .3s ease both;}
 .ai-response{animation:slideUp .35s ease both;}
 .spin{animation:spin .8s linear infinite;}
+
+/* ===== MOBILE + BOTTOM TAB OPTIMIZATION ===== */
+html, body {
+  overflow-x: hidden !important;
+  touch-action: manipulation;
+}
+
+/* Better touch targets globally */
+button,
+input,
+select,
+textarea,
+a {
+  min-height: 48px;
+}
+
+/* Improve all navigation/tab buttons */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* Horizontal tab navigation optimization */
+[style*="overflowX: "auto""],
+[style*="overflow-x:auto"] {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+[style*="overflowX: "auto""]::-webkit-scrollbar,
+[style*="overflow-x:auto"]::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile responsive improvements */
+@media (max-width: 768px) {
+
+  html, body {
+    font-size: 15px !important;
+  }
+
+  #root {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Larger tab buttons for mobile */
+  button {
+    min-height: 52px !important;
+    min-width: 52px !important;
+    border-radius: 12px !important;
+  }
+
+  /* Improve readability */
+  input, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Better spacing for cards/panels */
+  div[style*="borderRadius: 12"] {
+    margin-bottom: 12px !important;
+  }
+
+  /* Prevent UI clipping near bottom */
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+
+  html, body {
+    font-size: 14px !important;
+  }
+
+  button {
+    min-height: 56px !important;
+    padding: 10px !important;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    width: 26px;
+    height: 26px;
+  }
+
+  input[type=range]::-moz-range-thumb {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Improve visibility for action buttons */
+button[style*="linear-gradient"] {
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.25);
+}
+
+/* Better active state visibility */
+button:active {
+  transform: scale(0.98);
+}
+
+/* Smooth scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
 </style>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
